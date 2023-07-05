@@ -1,0 +1,33 @@
+/* 아이디 선택자 */
+#title {
+    text-decoration: underline;
+}
+
+/* 클래스 선택자 */
+.my {
+    color: rgb(16, 98, 8);
+}
+
+/* 형제 인접 선택자 */
+.my+p {
+    color: rgb(153, 167, 180);
+}
+
+/* 자손 선택자 */
+.sect2 strong {
+    background-color: rgb(255, 251, 137);
+}
+
+/* 자식 선택자 */
+.sect2>strong {
+    background-color: rgb(137, 255, 188);
+}
+
+.sect2>* {
+    border: 2px solid red;
+}
+
+.my+p,
+.sect3 p {
+    background-color: rgb(235, 235, 255);
+}
