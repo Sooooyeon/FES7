@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        div {
+            display: flex;
+            align-items: center;
+            background-color: #eee;
+
+        }
+
+        p {
+            background-color: skyblue;
+            /* width: 100px; */
+            height: 100px;
+            /* flex-basis: 0; */
+            /* flex-basis: 0; 을 줄 경우 flex-grow에서 여백의 비에 적용되지 않고 전체너비로 적용됨..? */
+        }
+
+        .item1 {
+            flex-grow: 2;
+        }
+
+        .item2 {
+            flex-grow: 1;
+            background-color: rgb(169, 245, 170);
+        }
+
+        .item3 {
+            flex-grow: 2;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p class="item1">Lorem, ipsum d </p>
+        <p class="item2">Lorem ipsum dolor sit amet conatur.</p>
+        <p class="item3">7기 Lorem</p>
+    </div>
+</body>
+
+</html>
