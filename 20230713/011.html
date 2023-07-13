@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table</title>
+    <style>
+        table {
+            width: 100%;
+        }
+
+        caption {
+            caption-side: top;
+        }
+
+        .col1 {
+            background-color: rgb(240, 230, 173);
+            width: 10%;
+        }
+
+        .col2 {
+            background-color: rgb(255, 188, 176);
+        }
+
+        .col3 {
+            background-color: #e0b9e0;
+            width: 40%;
+        }
+
+
+        tr:nth-child(2) {
+            background-color: rgb(136, 161, 236);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <h2>테이블의 제목</h2> -->
+    <table>
+        <caption>테이블의 제목, 설명 </caption>
+        <colgroup>
+            <col class="col1">
+            <col span="2" class="col2">
+            <col class="col3">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>제목</th>
+                <th scope="col">제목</th>
+                <th scope="col">제목</th>
+                <th scope="col">제목</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">제목</th>
+                <td colspan="2">내용</td>
+                <td>내용</td>
+            </tr>
+            <tr>
+                <th>제목</th>
+                <td>내용</td>
+                <td rowspan="2">내용</td>
+                <td>내용</td>
+            </tr>
+            <tr>
+                <th>제목</th>
+                <td>내용</td>
+                <td>내용</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>제목</th>
+                <td>내용</td>
+                <td>내용</td>
+                <td>내용</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+
+</html>

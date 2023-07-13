@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>표 만들기</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            border: 2px solid #000;
+            font-size: 12px;
+        }
+
+        caption {
+            margin-top: 30px;
+            caption-side: bottom;
+        }
+
+        th,
+        td {
+            border: 1px solid #000000;
+        }
+
+        th,
+        .object {
+            background-color: #eee;
+            font-weight: bold;
+        }
+
+        .head {
+            height: 2.5em;
+        }
+
+        .head>th {
+            width: 90px;
+        }
+
+        tfoot {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <caption>2023 학년도 대학수학능력시험 성적통지표</caption>
+        <tr class="head">
+            <th>구분</th>
+            <th rowspan="2">한국사 영역</th>
+            <th>국어영역</th>
+            <th>수학영역</th>
+            <th rowspan="2">영어영역</th>
+            <th colspan="2">탐구영역</th>
+            <th>제 2 외국어<br>/한문 영역</th>
+        </tr>
+        <tr class="object">
+            <th>선택과목</th>
+            <td>화법과 작문</td>
+            <td>확률과 통계</td>
+            <td>생활과 윤리</td>
+            <td>지구과학 1</td>
+            <td>독일어</td>
+        </tr>
+        <tr>
+            <th>표준점수</th>
+            <td rowspan="2"></td>
+            <td>131</td>
+            <td>137</td>
+            <td rowspan="2"></td>
+            <td>53</td>
+            <td>64</td>
+            <td rowspan="2"></td>
+        </tr>
+        <tr>
+            <th>백분위</th>
+            <td>93</td>
+            <td>95</td>
+            <td>75</td>
+            <td>93</td>
+        </tr>
+        <tfoot>
+            <tr>
+                <th>등급</th>
+                <td>2</td>
+                <td>2</td>
+                <td>2</td>
+                <td>1</td>
+                <td>1</td>
+                <td>2</td>
+                <td>2</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+
+</html>

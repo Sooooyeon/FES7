@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>버튼 만들기</title>
+    <style>
+        @font-face {
+            font-family: 'Pretendard-bold';
+            src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        .btn1 {
+            font-family: 'Pretendard-bold';
+            width: 88px;
+            height: 32px;
+            background-color: #2D3848;
+            color: #CBD5DF;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .btn1:hover {
+            text-decoration: underline;
+            color: #fff;
+        }
+
+        .btn1:active {
+            border-color: #262F3E;
+        }
+
+        .btn1:disabled {
+            color: #4A5568;
+            background-color: #3A4556;
+        }
+
+        .btn1:disabled:hover {
+
+            text-decoration: none;
+            color: none;
+        }
+
+        .btn1:disabled:active {
+            border-color: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn1" type="button">Button</button>
+
+    <button class="btn1" type="button" disabled>Button</button>
+</body>
+
+</html>
