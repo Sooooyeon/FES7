@@ -1,0 +1,107 @@
+/* reset */
+h1,
+p {
+    margin: initial;
+    /* 초기값을 줌 */
+
+    /* 상속이 지원 되지 않는 속성은 초기화시 initial 주는게 좋음  */
+    /* unset은 프로퍼티가 상속이 되는지 안 되는지를 브라우저가 스스로 판단해 값을 적용 */
+}
+
+h1,
+h2,
+ul,
+p {
+    margin: unset;
+    padding: unset;
+}
+
+h1,
+h2 {
+    font-size: inherit;
+    font-weight: inherit;
+    /* 상속이 지원이 되는 속성은 초기화시 inherit 주는게 좋음  */
+}
+
+li {
+    list-style-type: none;
+
+}
+
+/* style */
+body {
+    background-image: url(./images/background.gif);
+}
+
+.wrapper {
+    background-color: orange;
+    width: 800px;
+    height: auto;
+    margin: 100px auto;
+
+}
+
+.header {
+    background-image: url(./images/cover02.png);
+    padding: 100px 0;
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.header img {
+    margin: 0 auto;
+    display: block;
+}
+
+.header h1 {
+    font-size: 6em;
+    text-align: center;
+    /* h1의 영역은 그대로이며, 영역  안에서 안에 있는 콘텐츠만 가운데로 정렬 됨 */
+
+}
+
+.header p {
+    border-top: 4px solid white;
+    width: fit-content;
+    padding: 10px 20px;
+    margin: 0 auto;
+}
+
+.section {
+
+    background-color: white;
+    margin: 20px;
+    padding: 20px;
+    background-image: url(./images/icon-information.png);
+    background-repeat: no-repeat;
+    background-position: right 30px center;
+}
+
+/* .information {
+
+    background-image: url(./images/icon-information.png);
+} */
+
+.skill {
+
+    background-image: url(./images/icon-skills.png);
+}
+
+.section h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: orange;
+    margin-bottom: 20px;
+}
+
+.list li {
+    padding-left: 5px;
+    border-left: 5px solid orange;
+}
+
+.footer {
+    background-color: aquamarine;
+    text-align: center;
+    padding: 10px 0;
+}
