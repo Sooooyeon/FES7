@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .container {
+            display: grid;
+            /* width: 1000px; */
+            /* grid-template-columns: 2fr 1fr 2fr; */
+            /* 콘텐츠의 크기에 따라 가변적으로 영억 크기가 변할 수 있다 */
+            /* grid-template-columns: 1fr 500px 2fr; */
+            /* 고정값 500px을 제외 한 부분을 지정된 비율로 나눠가짐 */
+            grid-template-columns: minmax(100px, 150px) 1fr 1fr;
+            grid-template-rows: minmax(100px, 150px) minmax(50px, 100px);
+            gap: 20px 10px;
+        }
+
+        .item {
+            /* width: 100px; */
+            /* height: 100px; */
+            background-color: aliceblue;
+        }
+
+        .item:nth-child(odd) {
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item">
+            Lorem, ipsum dolor fugit aperiam modi alias!Lore b Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            Ipsum quasi earum cum. Vitae fuga velit explicabo dolorum nobis harum ea dicta nesciunt est ducimus soluta
+            excepturi tempora hic, asperiores perspiciatis. Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            Molestiae itaque, ipsa vel fuga labore libero doloremque mollitia maxime architecto earum consequatur error
+            in non explicabo molestias deserunt. Sed, explicabo nemo!
+        </div>
+        <div class="item">Lorem il quo ipsa mollitia facilis.</div>
+        <div class="item">Lore.</div>
+        <div class="item">D</div>
+        <div class="item">E</div>
+        <div class="item">F</div>
+    </div>
+</body>
+
+</html>

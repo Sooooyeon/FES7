@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .container {
+            display: grid;
+            /* width: 600px; */
+            gap: 10px;
+            background: #ddd;
+            margin-bottom: 10px;
+            border: 10px solid #aaa;
+
+        }
+
+        .container div {
+            background: skyblue;
+            height: 100px;
+            border: 10px solid royalblue;
+            box-sizing: border-box;
+        }
+
+
+        .autofill {
+            grid-template-columns: repeat(auto-fill, minmax(100px, auto));
+        }
+
+        .autofit {
+            grid-template-columns: repeat(auto-fit, minmax(100px, auto));
+        }
+
+        /* 옆 공간을 비워두고 싶으면 fill을 꽉 채우고 싶으면 fit을 사용 */
+    </style>
+</head>
+
+<body>
+    <div class="container autofill">
+        <div>
+            item Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error aperiam a animi quibusdam. Recusandae,
+            ipsum voluptatum laudantium culpa, porro nostrum ab quidem eius distinctio aliquam mollitia similique dolor
+            voluptatem. Iusto.
+        </div>
+        <div>
+            item Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo ad aliquid aspernatur, veniam
+            culpa praesentium, cum error aliquam numquam aut ipsa sunt sequi pariatur repudiandae cumque. Repudiandae,
+            neque consequuntur.
+        </div>
+        <div>
+            item Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ipsam enim quo excepturi, sapiente nihil
+            unde iste asperiores maiores voluptate deserunt dicta alias, quam voluptas et molestiae? Mollitia, fugiat
+            dignissimos.
+        </div>
+        <div>
+            item Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto itaque, enim sint quam quidem quis
+            commodi, voluptates neque quae, necessitatibus doloribus quia exercitationem ex. Eos quo est voluptate aut
+            dolor.
+        </div>
+    </div>
+
+    <div class="container autofit">
+        <div>
+            item Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta nisi, necessitatibus libero asperiores
+            eius itaque voluptates dolore qui consectetur eveniet reiciendis inventore error totam beatae doloribus quam
+            cumque est ab!
+        </div>
+        <div>
+            item
+        </div>
+        <div>
+            item
+        </div>
+        <div>
+            item
+        </div>
+    </div>
+
+</body>
+
+</html>
