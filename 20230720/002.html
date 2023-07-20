@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>srcset</title>
+</head>
+
+<body>
+    <!-- picture -->
+    <picture>
+        <!-- 1024 부터 -->
+        <source media="(min-width:1024px)" srcset="./images/lication-chilli.png">
+        <!-- 1023 까지 -->
+        <source media="(max-width:1023px)" srcset="./images/lication-chilli2.png">
+        <img src="./images/lication-chilli.png" alt="위니브 리케이션 속 칠리">
+    </picture>
+
+    <!-- srcset size 해상도 -->
+    <img srcset="./images/chilli_360px.jpg 360w, ./images/chilli_720px.jpg 720w, ./images/chilli_1440px.jpg 1440w"
+        src="./images/chilli_360px.jpg" alt="다람쥐 캐릭터 칠리">
+
+    <img srcset="./images/chilli_360px.jpg 360w, ./images/chilli_720px.jpg 720w, ./images/chilli_1440px.jpg 1440w"
+        sizes="(max-width:360px) 200px, (max-width:720px) 400px, 600px" src="./images/chilli_360px.jpg"
+        alt="다람쥐 캐릭터 칠리">
+</body>
+
+</html>
