@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .container {
+            box-shadow: inset 0 0 20px red;
+            width: 600px;
+            margin: 100px auto;
+            display: flex;
+        }
+
+        .sidebar {
+            box-shadow: inset 0 0 20px rgb(0, 255, 34);
+
+            /* flex-basis: auto;
+            width: 200px; */
+            /* flex-basis: auto; 인 경우 width: 200px;를 주면 flex-basis가 200px을 가져옴  */
+
+            flex-basis: 100px;
+            /* width: 100px; */
+            padding: 10px;
+
+            /* basis값만 있을 때는 내용에 따라 min-width값이 가변적으로 늘어나지만 width 값만 있을 때는 min-width값이 width 값에 맞춰짐 */
+
+            /* min-width: auto;의 문제점은 내부 컨텐츠 크기만큼 최소너비가 정해지기 때문에, 컨텐츠가 레이아웃보다 커지면 레이아웃도 같이 커져서 변형된다. 따라서 flex-basis를 쓸 땐 min-width값을 0으로 주는 등 따로 정해주어서 레이아웃의 변형이 없이 내부 컨텐츠만 레이아웃보다 커져 빠져나가도록 설정을 해준다. 또한, 다른 flex-items의 영향을 받지 않기 위해서 flex-shrink를 0으로 해주어 더이상 작아지지 않도록 해준다.
+            /* https://codepen.io/veamcamp/pen/QWaBXXq */
+            */
+        }
+
+        .main {
+            box-shadow: inset 0 0 20px rgb(112, 108, 184);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar"><img src="./images/frog-eat.png" alt=""></div>
+        <div class="main">main</div>
+    </div>
+</body>
+
+</html>

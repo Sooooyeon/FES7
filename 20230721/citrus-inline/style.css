@@ -1,0 +1,93 @@
+.wrapper {
+    box-shadow: inset 0 0 20px red;
+    /* box-shadow -> 차지하는 영역을 볼 때 사용하기 좋음 */
+
+    width: 800px;
+    margin: 100px auto;
+    /* 상하 마진 auto 가 0인 이유는 하단 영역은 다른 요소의 영영이 될 가능성이 있기 때문
+    포지션 상황에서는 상하 마진 auto가 적용 됨 */
+
+    text-align: center;
+}
+
+.fruit {
+    background-color: rgb(255, 166, 49);
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+    border-radius: 50%;
+}
+
+/* nth-child를 쓰면 순서의존이 생겨 유지보수시 불편함 추가클래스 줘서 사용하는게 좋음 */
+/* .fruit:nth-child(1){
+    background-color: lemonchiffon;
+}
+
+.fruit:nth-child(2) {
+    background-color: orange;
+}
+
+.fruit:nth-child(3) {
+    background-color: orangered;
+} */
+
+.fruit.lemon {
+    background-color: lemonchiffon;
+}
+
+.fruit.orange {
+    background-color: orange;
+}
+
+.fruit.jamong {
+    background-color: orangered;
+}
+
+
+
+
+
+
+
+
+
+
+
+.wrapper2 a {
+    background-color: rgb(255, 166, 49);
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    /* a는 인라인요소로 높이, 너비값을 가질 수 없으며(아예 개념이 없음.), 상하 마진이 적용되지 않는다.
+    상하단 패딩이 공간을 차지하지 않음, 좌우는 공간을 차지함 */
+    /* width는 상속되지 않는 요소. 초기값은 auto로 지정하지 않을경우 상위 컨테이너의 전체 영역을 차지하게 됨 */
+    /* 인라인 블록은 외부적으로는 인라인, 내부적으로는 블록. 따라서 가운데 정렬을 위해서는 상위 컨테이너에 text-align: center 적용해야함 (마진으로 가운데 정렬 불가능)  */
+    /* text라인이 베이스라인으로 맞춰짐 따라서 요소에 텍스트가 없을경우 영역 하단(마진영역포함)이 다른 요소의 베이스라인과 같은 선상에 위치하게됨 vertical-align 사용해서 변경 */
+
+    vertical-align: baseline;
+
+    line-height: 200px;
+    /* 줄간격을 높이값 만큼 주면 텍스트가 세로 중앙 정렬로 보임 
+        여러줄 텍스트일경우 위 방법으로 세로 중앙 정렬 불가능. 플렉스 박스 이용해야함.*/
+
+    border-radius: 50%;
+}
+
+
+
+.wrapper2 a.silver {
+    background-color: silver;
+}
+
+.wrapper2 a.gold {
+    background-color: gold;
+    height: 300px;
+    line-height: 200px;
+    /* 버티컬 얼라인은 베이스라인에 맞추기때문에 줄 간격 영향 받음 */
+}
+
+.wrapper2 a.bronze {
+    background-color: burlywood;
+    height: 100px;
+}

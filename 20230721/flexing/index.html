@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Flexing</title>
+    <style>
+        body {
+            background-color: brown;
+        }
+
+        .playground {
+            border: 10px solid maroon;
+            width: 980px;
+            margin: 0 auto;
+            border-radius: 20px;
+            background-color: skyblue;
+            display: flex;
+        }
+
+        .frog {
+            background-color: mediumseagreen;
+            color: lime;
+            font-size: 40px;
+            margin: 10px;
+            border: 6px solid green;
+            border-radius: 10px;
+            flex-basis: 200px;
+            /* flex-basis: auto; */
+            /* 초기값은 오토 -> 콘텐츠 영역만큼 차지 */
+            /* flex-grow: 1; */
+            /* basis를 제외한 남은 영역을 동등한 비율로 나눠가짐 */
+            flex-shrink: 1;
+            /* 쉬링크는 1이 기본값 */
+            min-width: 0;
+            /* min-width: 오토일경우 자식요소의 크기만큼 차지 */
+        }
+
+        .frog.covid {
+            background-color: orangered;
+            margin-left: auto;
+        }
+
+        /* .frog.sun{
+            flex-shrink: 0;
+        }
+       .frog.cry{
+        flex-shrink: 200;
+       } */
+    </style>
+</head>
+
+<body>
+
+    <!-- <div class="playground">
+        <div class="frog">FrogFrog</div>
+        <div class="frog covid">Frog</div>
+        <div class="frog">Frog</div>
+    </div> -->
+
+    <div class="playground">
+        <div class="frog cry"><img src="./images/frog-cry.png" alt=""></div>
+        <div class="frog"><img src="./images/frog-hang.png" alt=""></div>
+        <div class="frog"><img src="./images/frog-disco.png" alt=""></div>
+        <div class="frog"><img src="./images/frog-disco.png" alt=""></div>
+        <div class="frog"><img src="./images/frog-disco.png" alt=""></div>
+        <div class="frog sun"><img src="./images/frog-disco.png" alt=""></div>
+    </div>
+
+</body>
+
+</html>

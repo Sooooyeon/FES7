@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Flexing</title>
+    <style>
+        body {
+            background-color: brown;
+        }
+
+        .playground {
+            border: 10px solid maroon;
+            width: 980px;
+            margin: 0 auto;
+            border-radius: 20px;
+            background-color: skyblue;
+            display: flex;
+        }
+
+        .frog {
+            background-color: mediumseagreen;
+            color: lime;
+            font-size: 40px;
+            margin: 10px;
+            border: 6px solid green;
+            border-radius: 10px;
+            width: 100px;
+            /* width 값이 지정되고 flex-basis가 auto이면 width값을 auto가 초기값으로 가져옴 min-width 값도 width값을 따라감 */
+            /* flex-basis: 200px; */
+            /* min-width: 100px; */
+            /* 베이시스보다 줄어들때는 min-width가 적용됨 */
+            /* min-width 초기 값은 auto 오토일경우 컨텐츠 영역만큼 차지 */
+        }
+
+        .frog.covid {
+            background-color: orangered;
+            margin-left: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- <div class="playground">
+        <div class="frog">FrogFrog</div>
+        <div class="frog covid">Frog</div>
+        <div class="frog">Frog</div>
+    </div> -->
+
+    <div class="playground">
+        <div class="frog cry">FrogFrog</div>
+        <div class="frog">Frog</div>
+        <div class="frog">Frog</div>
+    </div>
+
+</body>
+
+</html>
