@@ -1,0 +1,321 @@
+/* reset */
+body,
+h1,
+h2,
+p,
+ul,
+button {
+    padding: 0;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font: inherit;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+input {
+    font: inherit;
+}
+
+button {
+    border: none;
+    background: none;
+    font: inherit
+}
+
+button:enabled {
+    cursor: pointer;
+}
+
+img {
+    vertical-align: top;
+}
+
+/* 공통 css */
+.a11y-hidden {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+}
+
+/* css적용 */
+body {
+    background-color: #EAE8FE;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* 제목 */
+h1 {
+    text-align: center;
+}
+
+h1 img {
+    max-width: 50%;
+}
+
+
+
+/* 메인 레이아웃 */
+main {
+    width: 748px;
+    max-width: 100%;
+
+    display: grid;
+
+
+
+}
+
+/* 749px부터 적용 */
+@media (min-width: 749px) {
+    main {
+        grid-template-areas:
+            "section1 section2"
+            "section1 section3";
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 50px auto;
+        margin: 67px auto;
+        gap: 20px 28px;
+
+    }
+}
+
+
+/* 768px까지 적용 */
+@media (max-width: 748px) {
+    main {
+        grid-template-areas:
+            "section1"
+            "section2"
+            "section3";
+
+        margin: 18px auto;
+
+    }
+
+    body {
+        background-color: white;
+    }
+}
+
+.section1 {
+    background-color: #fff;
+    grid-area: section1;
+    padding: 30px 27px;
+}
+
+.section2 {
+    background-color: #fff;
+    grid-area: section2;
+    padding: 9px 27px;
+}
+
+.section3 {
+    background-color: #fff;
+    grid-area: section3;
+    padding: 25px 27px;
+    display: flex;
+    flex-direction: column;
+}
+
+.section3 .get-list {
+    flex-grow: 1;
+    flex-basis: 364px;
+}
+
+.section3 h2 {
+    text-align: center;
+    margin-bottom: 13px;
+    font-size: 14px;
+}
+
+.total-price {
+    font-size: 12px;
+    text-align: right;
+    margin-top: 8px;
+}
+
+/* 판매음료 */
+
+.cola-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+/* 기본버튼 */
+[class^='btn'] {
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+    min-height: 32px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.50);
+    font-size: 13px;
+}
+
+.btn-cola {
+    border-radius: 10px;
+    padding: 11px 12px 9px;
+}
+
+.btn-cola img,
+.cola-name,
+.cola-price {
+    display: block;
+}
+
+
+.btn-cola img {
+    width: 36px;
+    margin: 0 auto;
+}
+
+.cola-name {
+    font-size: 9px;
+    margin: 6px 0;
+}
+
+.cola-price {
+    font-size: 12px;
+    background-color: #6327fe;
+    color: #fff;
+    padding: 5px 0;
+    font-weight: normal;
+    border-radius: 30px;
+}
+
+/* 선택한 버튼 */
+.btn-cola.on {
+    box-shadow: 0px 0px 0px 4px #6327FE;
+}
+
+/* 품절된 버튼 */
+.btn-cola:disabled {
+    color: inherit;
+    position: relative;
+}
+
+.btn-cola:disabled::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+}
+
+.soldout {
+    color: #eae8fe;
+    font-size: 14px;
+    z-index: 10;
+    border: 4px double #eae8fe;
+    position: absolute;
+    width: 45px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-18deg);
+}
+
+/* 잔액 */
+.bg-box {
+    background-color: #eae8fe;
+    border-radius: 5px;
+    height: 32px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font-size: 14px;
+}
+
+#input-money {
+    border: 1px solid #bdbdbd;
+    height: 32px;
+    width: 100%;
+    padding: 6px;
+    box-sizing: border-box;
+}
+
+.section2 .bg-box p {
+    font-weight: 700;
+}
+
+#input-money::placeholder {
+    color: #bdbdbd;
+    font-size: 13px;
+}
+
+.get-list {
+    /* height: 106px; */
+    background-color: #eae8fe;
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+    padding: 12px;
+
+    /* overflow: auto 내용이 넘칠때만 스크롤리 생기도록 함 */
+    overflow: auto;
+}
+
+.get-list li {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 8px 0 10px;
+    height: 46px;
+    border-radius: 5px;
+    font-size: 9px;
+}
+
+.get-list li~li {
+    margin-top: 6px;
+}
+
+.get-list li img {
+    width: 18px;
+}
+
+.get-list li strong {
+    margin-left: auto;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+    font-size: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-get {
+    background-color: #6327fe;
+    color: white;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: auto calc((100% - 12px) / 3);
+    grid-template-rows: 33px 33px 106px;
+    gap: 12px;
+    margin-top: 20px;
+}
