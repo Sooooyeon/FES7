@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        /* 너무 다양한 폰트를 사용하면 페이지가 무거워진다. 재사용성이 낮은 폰트일 경우 이미지로 작업하는것이 웹 최적화에 좋음. 이미지 폰트라고 함. 브라우저가 지원하지 않는 폰트일 경우를 대비해 이미지로 사용한다?는 아닌듯. */
+        .txt-hide {
+            overflow: hidden;
+            /* 방탄코드 자식요소가 넘칠 경우를 대비 */
+            width: 1px;
+            height: 1px;
+            clip-path: inset(50%);
+            /* 경로에 따라 html요소를 잘라냄 상 우 하 좌 지정 가능
+            요소를 숨기는 방법 중 하나 */
+            /* 높이와 너비를 0으로 주게되면 브라우저가 존재하지 않는 요소로 인식해 스크린 리더가 읽을 수 없어 접근성 측면에서 문제가 생김 */
+        }
+
+        .labl-hold {
+            position: relative;
+        }
+
+        .labl-hold::before {
+            display: inline-block;
+            content: '';
+            width: 22px;
+            height: 22px;
+            margin-right: 10px;
+            border: 1px solid black;
+            vertical-align: -5px;
+        }
+
+        .inphold:focus-visible+.labl-hold::before {
+            outline: 2px solid teal;
+            outline-offset: 3px;
+        }
+
+        .labl-hold::after {
+            content: '';
+            position: absolute;
+            /* position 속성을 주게되면 자동으로 블록 요소로 변경됨 */
+            top: -3px;
+            left: 20px;
+            width: 22px;
+            height: 22px;
+            /* background-image: url(./images/checkmark.png);
+            background-size: 22px;
+            background-repeat: no-repeat; */
+            background: url(./images/checkmark.png) no-repeat 0 0 / 22px;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .inphold:checked+.labl-hold::after {
+            left: 0;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="checkbox" id="inpHold" class="inphold txt-hide">
+    <label for="inpHold" class="labl-hold">로그인 상태 유지</label>
+</body>
+
+</html>

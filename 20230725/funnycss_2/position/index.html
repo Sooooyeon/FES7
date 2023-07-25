@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>06 Position</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #ddd;
+        }
+
+        .grand-father {
+            background-color: #eee;
+            width: 800px;
+            margin: 0 auto;
+            padding: 1px;
+        }
+
+        .father {
+            background-color: white;
+            width: 300px;
+            height: 200px;
+            margin: 50px auto;
+        }
+
+        .children {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+
+        .pos {
+            background-color: orange;
+            position: absolute;
+            left: 0;
+            right: 0;
+            /* 너비값이 없는 상태에서 왼쪽 오른쪽 둘 다 0을 주게되면 양쪽으로 늘어난다 */
+            top: 0;
+            bottom: 0;
+            /* 높이값이 없는 상태에서 위 아래 둘 다 0을 주게되면 위아래로 늘어난다 */
+            /* inset: top right bottom left; 단축 속성 포지션 속성 없으면 적용되지 않음 */
+            width: 300px;
+            height: 300px;
+            margin: auto auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="grand-father">
+        <div class="father">
+            <!-- <img class="children" src="img.png">ㅎㅇㅎㅇ -->
+            <div class="pos">pos</div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Flexing</title>
+    <style>
+        body {
+            background-color: brown;
+            /* 바디 영역은 화면 전체가 아니다.
+                배경색을 지정했을때 전체로 적용되는 이유는 상위요소에 배경이 적용되지 않은 상태여서 바디가 그 역할을 대신한다.
+                (html에 배경색이 지정 될 경우 바디는 콘텐츠 영역만큼만 공간을 차지하게됨 ) */
+
+            /* 바디에 뷰포트로 높이를 설정해줘도 마진 오토로 세로 중앙 정렬은 불가능하다. */
+            height: 100vh;
+            display: flex;
+        }
+
+        .playground {
+            border: 10px solid maroon;
+            width: 980px;
+            margin: auto auto;
+            border-radius: 20px;
+            background-color: skyblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* flex-wrap: wrap; */
+            /* 공간이 부족하면 줄바꿈을 하기때문에 플랙스 베이시스 값이 줄어들지 않음 */
+            /* align-items: stretch; 가 기본값으로 높이를 첫번째 아이템에만 줘도 나머지 아이템에도 적용됨 */
+            height: 500px;
+        }
+
+        .frog {
+            background-color: mediumseagreen;
+            color: lime;
+            font-size: 40px;
+            margin: 10px;
+            border: 6px solid green;
+            border-radius: 10px;
+            flex-basis: 200px;
+            /* flex-shrink: 1; 는 공간이 부족한 상황에서 적용된다. 같은 비율로 줄어든다 */
+            /* flex-grow: 1; */
+            /* flex-basis를 제외한 여백을 나눠가진다 */
+        }
+
+        .playground::before,
+        .playground::after {
+            content: '';
+            flex-grow: 1;
+            box-shadow: inset 0 0 20px red;
+        }
+
+        /* 가로 가운데 정렬은 어려 방법으로 가능하다. 가상요소를 사용해서도 가능하고, 첫번째와 마지막 요소에 각각 한쪽으로 마진을 줘서도 가능하다. */
+
+        .frog.first {
+            background-color: royalblue;
+            /* height: 400px; */
+            margin-top: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="playground">
+        <div class="frog first"><img src="./images/frog-disco.png" alt=""></div>
+        <div class="frog"><img src="./images/frog-disco.png" alt=""></div>
+        <div class="frog"><img src="./images/frog-disco.png" alt=""></div>
+    </div>
+
+</body>
+
+</html>
