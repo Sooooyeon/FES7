@@ -1,0 +1,54 @@
+/* reset */
+body {
+    margin: initial;
+}
+
+h1,
+p {
+    margin: unset;
+    padding: unset;
+}
+
+
+
+
+/* body 시작 */
+
+body {
+
+    background-image: url(./images/bg.png);
+}
+
+.wrapper {
+    width: 300px;
+    height: auto;
+    margin: 57px auto;
+}
+
+.animal img {
+    display: block;
+    margin: 0 auto;
+}
+
+.contents {
+    width: 100%;
+    height: auto;
+    background-color: #9C6035;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px 20px 46px;
+    box-sizing: border-box;
+    border-radius: 0 0 30px 30px;
+    border-bottom: 10px solid #46260E;
+}
+
+.contents h1 {
+    font-weight: 700;
+}
+
+.contents p {
+    font-weight: 400;
+    padding-top: 10px;
+    color: #E8BC9C;
+    line-height: 1.15em;
+}
