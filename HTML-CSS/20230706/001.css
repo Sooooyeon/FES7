@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
+
+@font-face {
+    font-family: 'SUITE-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'pretendard-Regular';
+    src: url('./font/Pretendard-Regular.woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    color: royalblue;
+}
+
+h1 {
+    color: rgba(255, 49, 80, 0.771);
+    font-family: 'Black Han Sans', sans-serif;
+    font-weight: normal;
+}
+
+strong {
+    border-bottom: 3px solid currentColor;
+}
+
+h2 {
+    color: #999;
+    font-family: 'Bagel Fat One', cursive;
+    font-weight: normal;
+}
+
+.font-pc {
+    font-family: 'SUITE-Regular';
+}
+
+.font-pc2 {
+    font-family: 'pretendard-Regular';
+}
