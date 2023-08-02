@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <title>할당연산</title>
+</head>
+
+<body>
+    <script>
+        // 단락회로평가(***)
+        // true : 1
+        // false : 0
+        // and(&&) : 곱
+        // or(||) : 합
+        // not(!) : 부정
+
+        console.log(!"false") // false
+        console.log(!"0") // false
+
+        console.log(!false) // true
+        console.log(!0) // true
+
+        console.log('abc' / 2) // NaN
+
+        console.log(!!NaN) // false
+        console.log(!!undefined) // false
+        console.log(!!null) // false
+
+        // 단락회로 평가는 값이 비어있는지 아닌지를 체크하는 용도로 많이 사용하며, 특히 or 연산자를 많이 사용
+        let username = ''
+        username = username || 'Guset'
+
+        let username = 'sooyeon'
+        username = username || 'Guset' // 합 연산으로 뒷 부부분 볼 필요 없이 참이라 앞의 유저네임이 출력됨
+
+
+        // 아래 코드는 리엑트를 배워야 이해가 쉬움
+        let logintemplate = ''
+        if (username) {
+            logintemplate = '<li>로그아웃</li>'
+        }
+
+        logintemplate = logintemplate || '<li>로그인</li>'
+
+
+
+
+        // 코딩도장 문제 다시 복습
+    </script>
+</body>
+
+</html>

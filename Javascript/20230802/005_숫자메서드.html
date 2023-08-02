@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <title>숫자를 표현하는 여러가지 기법</title>
+</head>
+
+<body>
+    <script>
+        // parseInt parseFloat
+        parseInt("123");
+        parseInt("123.123");
+        parseInt("123.123px");
+        parseInt("123px");
+        parseInt("px123");
+        parseInt('     10');
+
+        parseInt('11', 2); // 3
+
+        // toString
+        let num = 3
+        num.toString();
+
+        // isNaN
+        isNaN(NaN);
+        isNaN(123);
+        isNaN("123");
+        isNaN("123px");
+        isNaN([]);
+        isNaN({});
+
+        //Numcber.isNaN 사용을 권고
+        Number.isNaN(NaN);
+        Number.isNaN(123);
+        Number.isNaN("123");
+        Number.isNaN("123px");
+        Number.isNaN([]);
+        Number.isNaN({});
+
+        Math.PI; // 3.141592653589793
+        Math.round(10.49); // 10으로 반올림
+        Math.round(10.77); // 11로 반올림
+        Math.abs(-10); // 10
+        Math.pow(2, 3);
+        Math.pow(4, 0.5); // 2
+        Math.sqrt(16); // 4 16에 루트
+        Math.random(); // 0 ~ 1 사이의 랜덤한 숫자
+        Math.ceil(10.1); // 11
+        Math.floor(10.9); // 10
+        Math.max(1, 2, 3, 4, 5); // 5
+        Math.min(1, 2, 3, 4, 5); // 1
+
+        let test = [1, 2, 3]
+        Math.max(...test); // 3, 전개구문은 뒤에 있다.
+        Math.min(...test); // 1
+
+
+
+    </script>
+</body>
+
+</html>

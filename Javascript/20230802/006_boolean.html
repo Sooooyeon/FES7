@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <title>boolean</title>
+</head>
+
+<body>
+    <script>
+        // 관계 연산자
+        // 두 개의 값을 비교하여 true 또는 false 값을 반환. 예를 들어, x > y와 같은 표현식은 x가 y보다 큰지 여부를 true 또는 false 값으로 반환
+
+        let x = 5;
+        let y = 10;
+        let z = 5;
+
+        console.log(x > y); // false
+        console.log(x < y); // true
+        console.log(x >= z); // true
+        console.log(x <= z); // true
+        console.log(x === z); // true
+        console.log(x !== y); // true
+
+
+        // 논리 연산자
+        // 자바스크립트에서 논리 연산자는 Boolean 값을 가지는 피연산자를 대상으로 하는 연산자
+
+        // true(참, 1), false(거짓, 0)
+        // and(논리곱), or(논리합), not(부정)   
+
+        // and나 or도 뒤의 값을 볼 필요가 없으면 보지 않는다
+
+        Boolean('가')
+        !!'가' // true
+        !!'' // false
+
+        // and 논리곱
+        console.log(true && true) // true
+        console.log(true && false) // false
+        console.log(false && true) // false
+        console.log(false && false) // false
+        console.log('가' && '나') // true
+        console.log('' && '나') // false
+
+        // or 논리합
+        console.log(true || true) // true
+        console.log(true || false) // true
+        console.log(false || true) // true
+        console.log(false || false) // false
+
+        let username = 'sooyeon'
+        console.log(username || '이름없음') // sooyeon
+
+        let username2 = ''
+        console.log(username2 || '이름없음') // 이름없음
+
+        // not(부정)
+        console.log(!true) // true
+        console.log(!false) // false
+
+
+
+        
+        // if의 중첩은 논리 연산자로 대체할 수 있다.
+
+            for (let i = 0; i < 100; i++) {
+                if (i % 3 == 0) {
+                    if (i % 5 == 0) {
+                        console.log(i);
+                    }
+                }
+            }
+
+        //  위의 if의 중첩을 논리 연산자로 대체    
+        for (let i = 0; i < 100; i++) {
+            if (i % 3 == 0 && i % 5 == 0) {
+                console.log(i);
+            }
+        }
+
+        for (let i = 0; i < 100; i++) {
+            if (i % 3 == 0 || i % 5 == 0) {
+                console.log(i);
+            }
+        }
+
+        // 비트연산자 (중요도 낮음)
+        console.log(3 & 5);
+        // 0011
+        // 0101
+        //-----
+        // 0001
+
+        console.log(3 | 5);
+        // 0011
+        // 0101
+        //-----
+        // 0111
+
+
+        // 카카오 코딩테스트 문제의 일부
+        (9 | 30).toString(2).replaceAll('0', ' ').replaceAll('1', '#')
+
+        (9 | 30)
+        .toString(2)
+        .replaceAll('0', ' ')
+        .replaceAll('1', '#')
+
+        (20 | 1)
+        .toString(2)
+        .replaceAll('0', ' ')
+        .replaceAll('1', '#')
+
+
+    </script>
+</body>
+
+</html>
