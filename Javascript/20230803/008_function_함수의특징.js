@@ -1,29 +1,45 @@
+// 1. return이 없을 경우 값이 반환되지 않음
+
 function add(a, b) {
     let answer = a + b
 }
 
 let result = add(10, 20)
 
-///////////////
+
+
+
+// 2. return은 반환보다는 종료의 의미
 
 function add(a, b) {
     let answer = a + b
     return
 }
 
-let result = add(10, 20)
+let result2 = add(10, 20)
 
-///////////////
+
+
+
+// 3. return에 해당되는 값이 반환됨
 
 function add(a, b) {
     let answer = a + b
     return undefined
 }
+let result3 = add(10, 20)
 
-let result = add(10, 20)
 
-///////////////
+function add(a, b) {
+    let answer = a + b
+    return answer
+}
+let result4 = add(10, 20)
 
+
+
+
+// 4. return이 나올경우 종료되어 return아래의 명령은 실행되지 않음
 function test() {
     console.log('hello')
     console.log('hello')
@@ -34,7 +50,10 @@ function test() {
     console.log('hello')
 }
 
-///////////////
+
+
+
+// 5. return 이후의 에러는 출력하지 않음
 
 function test() {
     console.log('hello')
@@ -47,17 +66,18 @@ function test() {
     console.logjun('hello')
 }
 
-///////////////
 
-// 잊으셔도 됩니다!
-// 어려운데 심지어 중요하지도 않습니다.
-// 단락 평가에서도 마찬가지입니다!
+
+
+// 잊어도 됨!
+// 어려운데 심지어 중요하지도 않다.
+// 단락 평가에서도 마찬가지!
 function errorCode() {
     console.loghojun('hello')
 }
 let value = true
 // errorCode 실행시키지 않았다
-let result = true || errorCode()
+let result5 = true || errorCode()
 
 ///////////////
 
@@ -103,7 +123,7 @@ let y = 20
 console.log(add(x, y))
 
 // 1. 함수를 아규먼트로 전달
-// 아래와 같이 아규먼트 전달된 함수를 '콜백함수'라고 부릅니다.
+// 아래와 같이 아규먼트로 전달된 함수를 '콜백함수'라고 부릅니다.
 function add(x, y) {
     return x + y
 }
@@ -124,5 +144,10 @@ function one(x) {
     return two
 }
 
-let result = one(10)
-result(100)
+let result6 = one(10)
+// 실행이후 two 함수가 반환됨
+// function two(y) {
+// return 10 + y
+//     }
+
+result6(100) // 110

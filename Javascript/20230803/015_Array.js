@@ -16,23 +16,23 @@ arr4[0] // 'leehojun'
 arr4[0][3] // 'h'
 
 // 2. array에 길이 출력
-let arr1 = [1, 2, 3]
-arr1.length // 3
-arr1.length = 100
-arr1 // [1, 2, 3, empty × 97]
-arr1[10] = null
-arr1 // [1, 2, 3, empty × 7, null, empty × 89]
+let arr5 = [1, 2, 3]
+arr5.length // 3
+arr5.length = 100
+arr5 // [1, 2, 3, empty × 97]
+arr5[10] = null
+arr5 // [1, 2, 3, empty × 7, null, empty × 89]
 
-let arr2 = [[1, 2, 3],
+let arr6 = [[1, 2, 3],
 [4, 5, 6],
 [7, 8, 9]]
-arr2.length // 3
-arr2.flat().length
+arr6.length // 3
+arr6.flat().length // 9
 
-let arr3 = [[[10, 20], [10, [10, 20]], 3],
+let arr7 = [[[10, 20], [10, [10, 20]], 3],
 [[10, 20], [10, [10, 20]], 6],
 [[10, 20], [10, [10, 20]], 9]]
-arr3.flat()
-arr3.flat().flat().flat()
-arr3.flat(3)
-arr3.flat(Infinity) // 가장 깔끔! depth 헷갈려도 모두 출력.
+arr7.flat()
+arr7.flat().flat().flat()
+arr7.flat(3)
+arr7.flat(Infinity) // 가장 깔끔! depth 헷갈려도 모두 출력.

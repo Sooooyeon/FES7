@@ -71,7 +71,7 @@ console.log(sum2) // 16
 
 
 // console.log(NaN === NaN);
-// '숫자가 아님'은 '숫자가 아님'과 동일한가? -> 동일하다! true!
+// '숫자가 아님'은 '숫자가 아님'과 동일한가? -> NO! false!
 
 // javascript 내부적으로는 비교 x === y(여기서 x와 y는 값)는 true 또는 false를 생성한다. 이러한 비교는 다음과 같이 수행된다.
 
@@ -93,7 +93,7 @@ console.log("---");
 // 암기
 console.log(NaN == NaN); // false
 console.log(NaN === NaN); // false
-console.log("---");
+console.log("---"); // ---
 
 console.log(isNaN(undefined)); // true
 console.log(isNaN(null)); // false

@@ -75,13 +75,13 @@ factorial(2) == 2 * factorial(1) == 2 * 1
 factorial(1) == 1
 
 // 6. 지역변수 전역변수
-let a = 10; // 전역변수
+let b = 10; // 전역변수
 function test() {
-    console.log(a)
+    console.log(b)
 }
 test()
 
-let a = 10
+let c = 10
 function one() {
     let a = 100 // 지역변수
     function two() {
@@ -97,7 +97,7 @@ one()
 // 자신의 공간에 해당 변수가 없으면 상위 공간에서 찾습니다.
 // 못찾으면 error입니다.
 
-// 지역변수 끼리는 서로 간섭을 못합니다.
+// 지역변수끼리는 서로 간섭을 못합니다.
 function one() { // 메모장
     let x = 10 // x는 라인 수
 }
@@ -110,16 +110,18 @@ one()
 two()
 
 
+// 찾으면 읽고 쓸 수 있습니다!
+// 전역변수는 읽고 수정할 수 있습니다.
+// 다만 별도 함수 영역에 있는 지역변수는 서로 읽을 수 없습니다.
 
 
-
-let a = 10; // 전역변수
+let i = 10; // 전역변수
 function test() {
-    let a = 100
-    return a
+    let j = i + 100
+    return j
 }
 test()
-console.log(a) // 100
+console.log(i) // 10
 
 
 
@@ -150,3 +152,32 @@ function test2() {
 test1()
 test2()
 console.log(x)
+console.log(window.x)
+
+
+let battery = 100; // 전역변수
+
+function 메모장() {
+    battery -= 1
+    return b
+}
+
+function 사진() {
+    battery -= 1
+    return b
+}
+
+test()
+
+// 순수함수
+function add(a, b, c) {
+    return a + b + c
+}
+add(1, 2, 3)
+
+// 순수함수X
+let e = 10
+function add(a, b) {
+    return a + b + e
+}
+add(1, 2)

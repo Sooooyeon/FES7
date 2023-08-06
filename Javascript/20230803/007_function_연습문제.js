@@ -3,6 +3,8 @@ function add(x, y) {
 }
 
 
+
+
 // 문제 1 : 더하기, 빼기, 나누기, 곱하기를 하는 함수를 만들기
 
 add(1, 2)
@@ -26,6 +28,8 @@ function mul(x, y) {
 mul(1, 2)
 
 
+
+
 // 문제 2 : '10,000,000,000'와 같은 문자를 입력받아 10000000000과 같은 숫자를 반환하는 함수를 만들어주세요.
 
 let str = '10,000,000,000'
@@ -42,11 +46,14 @@ function stringToNumber(str) {
     return answer
 }
 
+
+
+
 // 문제3: 입력된 문자열을 콘솔로 출력하고 입력된 문자열을 쪼개서 출력하는 함수를 만들어주세요.
 // 입력 : world
 // 출력 : ['w','o','r','l','d']
 
-function printAndSplit(str){
+function printAndSplit(str) {
     console.log(str);
     return str.split('')
 }
@@ -54,12 +61,15 @@ function printAndSplit(str){
 printAndSplit('world')
 
 // let value = printAndSplit('world')
+// 쪼갠 문자열을 배열로 선언
+
+
 
 
 // 문제4 : 2개의 숫자가 입력되면 2개의 숫자를 더하고, 더한 2개의 숫자를 곱하는 함수를 만들어주세요.
 
-function addAndMul(x,y){
-    return (x+y)*(x+y)
+function addAndMul(x, y) {
+    return (x + y) * (x + y)
 }
 
 // 4.1번째 풀이
@@ -94,8 +104,8 @@ function addAndMultiply(x, y) {
 // 입력 : 3
 // 출력 : 9 + 12 - 12 = 9
 
-function calculate(x){
-    let answer = x**2 + 4*x -12
+function calculate(x) {
+    let answer = x ** 2 + 4 * x - 12
     return answer
 }
 

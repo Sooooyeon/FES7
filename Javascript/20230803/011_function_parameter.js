@@ -2,10 +2,10 @@ function test(a, b, c) {
     return a + b + c
 }
 
-test(10, 20) // 모자라면 undefined로 나옴 10 20 undefined - NaN
-test(10, 20, 30, 40) // 넘기면 제대로 작동합니다.
+test(10, 20) // 아규먼트 갯수가 파라미터 갯수보다 적으면 없는 갯수만큼 undefined로 나옴. 10 20 undefined --> NaN
+test(10, 20, 30, 40) // 아규먼트 갯수가 더 많으면 제대로 작동.
 
-function test(a = 10, b = 20, c = 30) { // 디폴트값 아무것도 안넣으면 해당값이 출력됨
+function test(a = 10, b = 20, c = 30) { // 파라미터에 선언된 디폴트값으로 아규먼트에 아무것도 안넣으면 해당값이 출력됨
     console.log(a, b, c)
     return a + b + c
 }
