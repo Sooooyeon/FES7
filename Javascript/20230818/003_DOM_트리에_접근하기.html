@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+
+<body>
+    <!-- 
+        DOM - HTML 문서의 내용을 트리형태로 구조화하여 웹페이지와 프로그래밍 언어를 연결시켜주는 역할을 함
+        노드(node) - 각각의 요소와 속성, 콘텐츠를 표현하는 단위
+    -->
+    
+    <ul>
+        <li><a href=""></a></li>
+        <li class="item2"><a href=""></a></li>
+        <li class="item2"><a href=""></a></li>
+    </ul>
+    <script>
+        console.log(document.getElementById("item2"));
+
+
+        // DOM 트리에 접근하기
+        // 해당하는 Id를 가진 요소에 접근하기
+        document.getElementById();
+
+        // 해당하는 모든 요소에 접근하기
+        document.getElementsByTagName();
+
+        // 해당하는 클래스를 가진 모든 요소에 접근하기
+        document.getElementsByClassName();
+
+        // css 선택자로 단일 요소에 접근하기
+        document.querySelector("selector");
+
+        // css 선택자로 여러 요소에 접근하기
+        document.querySelectorAll("selector");
+    </script>
+</body>
+
+</html>

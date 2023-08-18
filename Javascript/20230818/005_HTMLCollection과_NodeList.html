@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+
+    <body>
+        점심 식단
+        <article id="container">
+            <ul>
+                <li>탕수육</li>
+                <li class="item-second">유산슬</li>
+                <li>짜장면</li>
+            </ul>
+        </article>
+        저녁 식단
+        <article>
+            <ul>
+                <li>된장국</li>
+                <li class="item-second">김치찌게</li>
+                <li>해장국</li>
+            </ul>
+        </article>
+
+        <script>
+            const firstLis = document.querySelector('.item-second');
+
+            const lis = document.getElementsByTagName('li')
+            const lis2 = document.querySelectorAll('li')
+            const container = documetn.querySelector('#container ul');
+            container.append(document.createElement('li'));
+
+            console.log(lis);
+            // [li, li.item-second, li, li, li.item-second, li]
+            console.log(lis2);
+            // [li, li.item-second, li, li, li.item-second, li]
+
+            
+            // HTMLCollection과 NodeList의 차이점
+
+            // HTMLCollectiondms HTML만 포함하지만, NodeList는 모든 유형의 DOM 요소 즉, text, 주석 등을 모두 포함한다.
+
+            // 사용할 수 있는 메소드가 다름. NodeList는 forEach 같은 배열 메소드를 사용할 수 있지만 HTMLCollection은 또 다른 기능을 지원
+
+            // HTMLCollection은 실시간으로 업데이트되며, 해당 객체의 각 속성에 대한 변경 사항이 즉시 반영된다.반면에, NodeList는 정적이므로 해당 객체에 대한 변경 사항은 즉시 반영되지 않는다.
+
+            // HTMLCollection은 실시간 반영이 되기에 사용하지 않는 것을 권장. 개발자가 미처 생각하지 못한, 의도하지 않은 데이터가 들어올 수 있기 때문.(HTMLCollection을 라이브돔이라고 부름) 개발자의 성향에 따라 다름. NodeList를 통해 명확하게 하는 것을 강사님은 선호하심.
+
+        </script>
+    </body>
+</body>
+
+</html>

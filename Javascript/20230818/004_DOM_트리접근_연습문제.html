@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+
+    <body>
+        점심 식단
+        <article id="container">
+            <ul>
+                <li>탕수육</li>
+                <li class="item-second">유산슬</li>
+                <li>짜장면</li>
+            </ul>
+        </article>
+        저녁 식단
+        <article>
+            <ul>
+                <li>된장국</li>
+                <li class="item-second">김치찌게</li>
+                <li>해장국</li>
+            </ul>
+        </article>
+
+        <script>
+            const firstLis = document.querySelector('.item-second');
+            // 쿼리셀렉터는 첫번째 요소만 선택. 두번째 요소를 선택하고 싶으면? querySelectorAll[1]로 선택 또는 아래처럼 css 선택자 사용해 지정 가능.
+            const firstLis = document.querySelector('#containet+article .item-second');
+
+
+            const lis = document.getElementsByTagName('li')
+            const lis2 = document.getElementsByClassName('item-second')
+
+            const container = document.getElementById("container")
+            const innerLis = container.getElementsByTagName('li');
+        </script>
+    </body>
+</body>
+
+</html>

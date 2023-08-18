@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        async function fetchRequest() {
+            const response = await fetch();
+            const jsonData = await response.json();
+        }
+
+        let jsonObj = {};
+
+        function xhrRequest() {
+            const requestObj = new XMLHttpRequest();
+            requestObj.open('GET', 'heros.json');
+            requestObj.send();
+            requestObj.onreadystatechange = () => {
+                if (requestObj.readyState === 4 && requestObj.status === 200) {
+                    jsonObj = JSON.parse(requestObj.responseText);
+                }
+            }
+        }
+        xhrRequest();
+        jsonObj // {squadName: '슈퍼히어로', members: Array(2)}
+
+    </script>
+</body>
+
+</html>
