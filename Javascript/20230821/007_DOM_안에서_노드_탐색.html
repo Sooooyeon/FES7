@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <!-- 주석입니다 주석. -->
+    <article class="cont">
+        <h1>안녕하세요 저는 이런 사람입니다.</h1><!-- 주석입니다 주석. -->
+        <p>지금부터 자기소개 올리겠습니다</p><!-- 주석입니다 주석. -->
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt incidunt voluptates laudantium fugit, omnis
+        dolore itaque esse exercitationem quam culpa praesentium, quisquam repudiandae aut. Molestias qui quas ea iure
+        officiis.
+        <strong>감사합니다!</strong><!-- 주석입니다 주석. -->
+    </article>
+
+    <script>
+        const container = document.querySelector('.cont');
+
+        console.log(container.querySelector('strong').closest('.cont'));
+        // closest = 자기 자신부터 시작해 부모로 타고 올라가며 가장 가까운 cont 클래스 요소를 찾는다. 단, 형제요소는 찾지 않음. 자기자신한테 있으면 자기자신이 선택됨.
+
+        console.log(container.firstElementChild) // 첫번째 자식 요소를 찾음 -> h1
+
+        console.log(container.firstChild) // 첫번째 노드를 찾음 -> 위 코드에서는 개행(\n)이 첫번째 노드
+
+        console.log(container.lastElementChild); // 마지막 자식 요소를 찾음 -> strong
+
+        console.log(container.lastChild); // 마지막 노드를 찾음 ->
+
+        console.log(container.nextElementSibling); // 다음 형제 요소를 찾음 -> script
+
+        console.log(container.nextSibling);
+        // 부모의 childNodes 목록에서 지정된 노드 바로 다음에 있는 노드를 찾음 -> 개행
+
+        console.log(container.previousElementSibling); // 이전 형제 요소를 찾음 -> null
+
+        console.log(container.previousSibling); // 이전 형제 노드를 찾음 -> 개행
+
+        console.log(container.children); // 모든 직계 자식을 찾음 -> [h1, p, strong]
+
+        console.log(container.childNodes); // 모든 자식 노드를 찾음 -> [text, h1, comment, text, p, comment, text, strong, comment, text]
+
+        console.log(container.parentElement); // 부모 요소를 찾음 -> body
+        // 부모가 요소가 아닐경우 null을 반환.
+
+        console.log(container.parentNode); // 부모 노드를 찾음 -> body
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>원본 요소:</h3>
+    <p id="source">
+        <style>
+            #source {
+                color: red;
+            }
+        </style>
+        아래에서<br />이 글을<br />어떻게 인식하는지 살펴보세요.
+        <span style="display:none">숨겨진 글</span>
+    </p>
+    <h3>textContent 결과:</h3>
+    <textarea id="textContentOutput" rows="6" cols="30" readonly>...</textarea>
+    <h3>innerText 결과:</h3>
+    <textarea id="innerTextOutput" rows="6" cols="30" readonly>...</textarea>
+
+    <!-- 로그인 상태에 따라서 숨겨야 하는 텍스트가 있는 경우 -->
+    <figure>
+        <img src="" alt="청바지 삼종세트">
+        <figcaption>상품 가격 : 29,900원 <span class="hidden">VIP 회원이라면 29,900원!!</span></figcaption>
+    </figure>
+
+    <script>
+        const source = document.getElementById("source");
+        const textContentOutput = document.getElementById("textContentOutput");
+        const innerTextOutput = document.getElementById("innerTextOutput");
+
+        textContentOutput.innerHTML = source.textContent;
+        innerTextOutput.innerHTML = source.innerText;
+
+        // textContent - 안에 있는 요소를 모두 텍스트로만 보여준다.
+        // innerText - 태그를 인식해 태그를 동작하게 만든다.
+        // innerText는 display:none으로 인해 제거되는 텍스트, br 태그를 통해 줄 바꿈되는 텍스트의 '형태' 는 인식하지만 color 나 굵기, 사이즈 등 과 같은 정보는 인식하지 못한다고 볼 수 있다.
+
+
+        const cost = document.querySelector('figcaption')
+        const msg = '경고!';
+        console.log(cost.textContent) // display: none이 적용된것도 텍스트로 보여줌
+        console.log(cost.innerText)
+
+
+        // <dialog> 요소는 닫을 수 있는 경고, 검사기, 창 등 대화 상자 및 기타 다른 상호작용 가능한 컴포넌트를 나타낸다. 아래와 같이 사용도 가능함. 빈문자열을 넣어 지우기 가능.
+        cost.innerHTML = `<dialog>
+                        <div>
+                            <p>${msg}</p>
+                        </div>
+                    </dialog>`;
+        // cost.innerHTML = '';
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 객체</title>
+</head>
+
+<body>
+    <article class="parent">
+        <ol>
+            <li><button class="btn-first" type="button">버튼1</button></li>
+            <li><button type="button">버튼2</button></li>
+            <li><button type="button">버튼3</button></li>
+        </ol>
+    </article>
+    <script>
+        // 이벤트 객체 - 이벤트를 발생시킨 요소와 발생한 이벤트에 대한 정보를 제공하는 것. 이벤트가 발생하면 이벤트 객체는 동적으로 생성되어 이벤트 핸들러에 인자로 암묵적으로 전달된다.
+
+        const btnFirst = document.querySelector('.btn-first');
+        btnFirst.addEventListener('click', (event) => {
+            console.log(event);
+        }, true);
+        // true - 이벤트가 캡처링 단계일때 실행됨
+        // false - 이벤트가 버블링 단계일때 실행됨(기본값)
+
+
+
+    // 캡처링 이벤트 - 부모에서 자식으로 이벤트가 발생한 요소를 찾아가는 과정을 캡처링이라고 하며 이 단계에서 실행되는 이벤트를 캡처링 이벤트라고 한다.
+
+    // 이벤트가 발생한 자식요소부터 최상위 요소까지 타고 올라가는것을 버블링 이라고 함
+
+    // https://ko.javascript.info/bubbling-and-capturing
+
+
+    </script>
+</body>
+
+</html>

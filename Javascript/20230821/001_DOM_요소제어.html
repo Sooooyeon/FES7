@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 요소제어</title>
+</head>
+
+<body>
+    <div class="parent"></div>
+
+    <div id="parentElement">
+        <span id="childElement">hello guys~</span>
+    </div>
+    <script>
+        // DOM은 노드의 집합체
+        // createElement로 만든 요소, createTextNode로 만든 텍스트는 재사용이 안됨 -> 필요할때마다 만들어서 사용해야함
+
+        const text = document.createElement('p');
+        const text2 = document.createElement('p');
+
+        const textInside = document.createTextNode('문장입니다.');
+        text.appendChild(textInside);
+        // element.appendChild(target) : target 요소를 element의 자식으로 위치
+
+        const parent = document.querySelector('.parent');
+
+        // parent.appendChild(text);
+        // parent.appendChild(text2);
+
+        // parent.removeChild(text2);
+        // element.removeChild(target) : element의 target 자식 요소를 제거
+
+        parent.append('text입니다아아!!', text, text2)
+        // element.append(target) : target 요소를 element의 자식으로 위치
+        // 여러개의 노드를 한번에 붙일 수 있음. 텍스트도 자식 노드로 포함 가능.
+
+        // parent.remove();
+
+
+
+
+        // parentElement.insertBefore(target, location); target요소를 parentElement의 자식인 location 위치 앞으로 추가한다. (요소만 추가되고 요소 안의 내용은 추가되지 않음)
+
+        var span = document.createElement("span");
+        var sibling = document.getElementById("childElement");
+        var parentDiv = document.getElementById("parentElement");
+        parentDiv.insertBefore(span, sibling);
+
+
+    </script>
+</body>
+
+</html>

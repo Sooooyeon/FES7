@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 속성제어 </title>
+    <style>
+        /* p {
+                text-align: center;
+            } */
+    </style>
+</head>
+
+<body>
+    <!--
+        CSSStyleDeclaration 객체라 불리는 style 객체가 존재.
+        이 객체는 요소의 스타일 정보를 가지고 있으며, 스타일과 관련한 프로퍼티와 메소드를 지원한다.
+        ** 인라인 스타일 속성의 정보만 가지고 있음
+    -->
+
+    <p id='myTxt' style="text-align: center;">hello lions</p>
+    <div>
+        <img
+            src='https://static.ebs.co.kr/images/public/lectures/2014/06/19/10/bhpImg/44deb98d-1c50-4073-9bd7-2c2c28d65f9e.jpg'>
+    </div>
+
+
+
+
+
+
+    <!-- Attribute_data -->
+    <img class="terran battle-cruiser" src="battle-cruiser.png" data-ship-id="324" data-weapons="laser"
+        data-health="400" data-mana="250" data-skill="yamato-cannon" alt=" terran battle-cruiser" />
+
+
+
+
+
+    <!-- Attribute_data 콜라버튼 이름 -->
+    <ul>
+        <li>
+            <button data-name="redcola" data-cost="1000">
+                <img src="" alt="콜라이미지">
+                <span>redcola</span>
+                <strong>1000</strong>
+            </button>
+        </li>
+    </ul>
+
+
+
+    <!-- insertAdjacentHTML -->
+    <strong class="sayHi">
+        반갑습니다.
+    </strong>
+
+
+
+    <script>
+
+        // style 객체를 통한 속성제어
+
+        const target = document.querySelector("p");
+
+        const txtColor = target.style.color;
+        // 현재 스타일 정보를 가져옴
+
+        target.style.color = "red";
+        // 현재 스타일 정보를 변경
+
+        target.style.fontWeight = "bold";
+        // 현재 스타일 정보에 font-weight 속성이 없다면 추가
+
+        // target.style.color = null;
+        // 현재 스타일 정보를 제거(초기화)
+
+
+
+
+
+        // getAttribute, setAttribute
+
+        const myimg = document.querySelector('img');
+        const idAttr = target.getAttribute('id');
+        // getAttribute 메소드는 요소의 특정 속성 값에 접근할 수 있도록 함
+
+        console.log(idAttr); // myTxt -> target인 p태그의 아이디
+
+
+        // myimg.setAttribute("src", "https://img.wendybook.com/image_detail/img159/159599_01.jpg");
+        // setAttribute 메소드는 요소의 특정 속성 값에 접근하여 값을 수정
+        // 뽀로로 이미지에서 헤이더기 이미지로 변경됨
+
+
+        // const div = document.querySelector('div');
+        // div.innerHTML = "<img src = 'https://img.wendybook.com/image_detail/img159/159599_01.jpg' > "
+        // innerHTML으로 요소 수정도 가능.
+
+
+
+
+
+        // 요소에 데이터를 저장하도록 도와주는 data 속성
+        // data 속성을 사용하면 HTML 요소에 추가적인 정보를 저장하여 프로그램 가능한 객체처럼 사용할 수 있게 한다. data 속성의 이름에는 콜론(:)이나 영문 대문자가 들어가서는 안됨. dataset에 .연산자로 접근
+
+
+        // Attribute_data
+        const img = document.querySelector('.terran');
+
+        console.log(img.dataset);
+        // DOMStringMap {shipId: '324', weapons: 'laser', health: '400', mana: '250', skill: 'yamato-cannon'}
+
+        console.log(img.dataset.shipId)
+        // 324
+
+
+
+        // Attribute_data 콜라버튼 
+        const btn = document.querySelector('button');
+        btn.addEventListener('click', function () {
+            console.log(this.dataset.name, this.dataset.cost);
+            console.log(btn.querySelector('span').textContent);
+        });
+
+
+
+
+
+        // insertAdjacentHTML : 요소 노드를 대상의 인접한 주변에 배치
+
+        const sayHi = document.querySelector('.sayHi');
+        sayHi.insertAdjacentHTML('beforebegin', '<span>안녕하세요. </span>')
+        sayHi.insertAdjacentHTML('afterbegin', '<span>처읍뵙네요!</span>')
+        sayHi.insertAdjacentHTML('beforeend', '<span> 날씨가 너무 더워요</span>')
+        sayHi.insertAdjacentHTML('afterend', '<span> 조심히가세요!</span>')
+
+        //begin 여는태그 end 닫는태그
+
+
+    </script>
+</body>
+
+</html>

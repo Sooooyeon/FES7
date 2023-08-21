@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>리스트 만들기</title>
+</head>
+
+<body>
+    <ul class="list5"></ul>
+    <button class="btn5">리스트 5개 생성하기</button>
+
+    <ul class="list"></ul>
+    <button class="btn"> 삭제 버튼 있는 리스트 만들기 </button>
+
+    <div id="parentElement">
+        <span id="childElement">hello guys~</span>
+    </div>
+
+    <script>
+
+        // li 한번에 여러개 만들기
+        const btn = document.querySelector('.btn5');
+        const ul = document.querySelector('.list5');
+
+        btn.addEventListener('click', function () {
+            for (let i = 0; i < 5; i++) {
+                const li = document.createElement('li');
+                ul.appendChild(li);
+            }
+        });
+
+
+        // 삭제 버튼이 있는 리스트 만들기
+        const listBtn = document.querySelector('.btn');
+        const list = document.querySelector('.list');
+
+        listBtn.addEventListener('click', function () {
+            for (let i = 0; i < 5; i++) {
+                const li = document.createElement('li');
+                const btnDel = document.createElement('button');
+                const btnText = document.createTextNode = '지우기';
+                btnDel.append(btnText);
+
+                btnDel.addEventListener('click', () => {
+                    li.remove();
+                });
+
+                li.append('내용 ', btnDel);
+                list.appendChild(li);
+            }
+        });
+
+
+
+
+
+        // 첫번째 자식 요소로 붙이기
+
+        list.append('text1');
+        list.append('text2');
+        list.append('text3');
+        list.append('text4');
+
+
+        // parentElement.insertBefore(target, location); target요소를 parentElement의 자식인 location 위치 앞으로 이동합니다.
+
+        var span = document.createElement("span");
+        var sibling = document.getElementById("childElement");
+        var parentDiv = document.getElementById("parentElement");
+        parentDiv.insertBefore(span, sibling);
+
+
+    </script>
+</body>
+
+</html>
