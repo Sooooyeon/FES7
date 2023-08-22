@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+            font-size: 10px;
+        }
+
+        ul,
+        li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+        }
+
+        .custom-select {
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        /* 셀렉트 박스 */
+        .btn-select {
+            width: 20rem;
+            height: 4rem;
+            border-radius: 1rem;
+            border: 1px solid #c4c4c4;
+            background: #fff;
+            text-align: left;
+            padding: 0 1em;
+            position: relative;
+        }
+
+        .btn-select.on,
+        .btn-select:focus {
+            outline: none;
+            border-color: #fdd65f;
+            box-shadow: 0 0 0 3px #fff9e7;
+        }
+
+        /* 화살표 모양 */
+        .btn-select::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 1em;
+            margin-top: -0.5rem;
+            box-sizing: border-box;
+            border-top: 0.8rem solid #c4c4c4;
+            border-left: 0.5rem solid transparent;
+            border-right: 0.5rem solid transparent;
+            transition: transform 0.3s;
+        }
+
+        /* 활성화 시 화살표 회전 */
+        .btn-select.on::after {
+            transform: rotate(-180deg);
+        }
+
+        /* 리스트 */
+        .list {
+            position: absolute;
+            top: 4.8rem;
+            left: 0;
+            z-index: 1;
+            width: 20rem;
+            border: 1px solid #c4c4c4;
+            border-radius: 1rem;
+            background: #fff;
+            box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.15);
+
+            /* 변동값 */
+            display: none;
+        }
+
+        .btn-select.on+.list {
+            display: block;
+        }
+
+        .list li {
+            padding: 0.5rem 0.8rem;
+        }
+
+        .list button {
+            width: 100%;
+            height: 100%;
+            text-align: left;
+            border-radius: 0.8rem;
+            height: 4rem;
+            background: #fff;
+            transition: background-color 0.3s;
+        }
+
+        .list li button:hover,
+        .list li button:focus {
+            background-color: #fff3cf;
+        }
+
+        .list li button:focus {
+            outline: 2px solid #fdd65f;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>셀렉트 박스 만들기</h3>
+    <div class="custom-select">
+        <button class="btn-select">최애 프로그래밍 언어</button>
+        <ul class="list">
+
+        </ul>
+    </div>
+
+    <h1>나의 todo list</h1>
+    <p>1. 오늘 저녁에는 부대찌게를 끓여 먹겠다.<button type="button">삭제</button></p>
+    <p>2. 후식으로 슈팅스타를 먹겠다.<button type="button">삭제</button></p>
+    <p>3. 자기 전에 반드시 내일 아침 메뉴를 생각해두겠다.<button type="button">삭제</button></p>
+
+    <script>
+
+        // 1. 버튼을 누르면 목록이 나와야한다.
+        const btn = document.querySelector('.btn-select');
+        btn.addEventListener('click', function () {
+            btn.classList.toggle('on');
+        });
+
+
+        // 2. li 를 동적으로 생성한다.
+        const list = document.querySelector('.list');
+        const arrLang = ['python', 'Java', 'Javascript', 'C#', 'C/C++'];
+        arrLang.forEach((item) => {
+            const li = document.createElement('li');
+            li.innerHTML = `<button type='button'>${item}</button>`;
+            list.appendChild(li);
+        })
+
+
+        // 3. 목록의 버튼을 누르면 버튼의 텍스트가 첫번째 버튼에 반영되어야 한다.
+        //     -> 이벤트를 이벤트 위임을 통해서 구현하기.
+        list.addEventListener('click', (event) => {
+            if (event.target.nodeName === 'BUTTON') {
+                btn.textContent = event.target.textContent;
+                btn.classList.remove('on');
+            }
+        })
+
+        // 이벤트 타입 contextmenu를 이용해 브라우저 오른쪽 버튼 이벤트 막고 '해당 페이지에서는 오른쪽 클릭을 제한합니다.’ 경고 띄우기
+
+        // document.addEventListener('contextmenu', (event) => {
+        //     event.preventDefault();
+        //     alert('해당 페이지에서는 오른쪽 클릭을 제한합니다.')
+        // })
+
+
+        // 1. P 태그를 클릭하면 p 태그의 컨텐츠를 출력하는 alert 창을 띄워줌
+        const content = document.querySelectorAll('p');
+        content.forEach((p) => {
+            p.addEventListener('click', (event) => {
+                alert(event.currentTarget.firstChild.textContent);
+            }); // true를 추가하게되면 캡처링으로 아래의 버블링 보다 먼저 동작해 알림창이 뜨게됨!
+        });
+
+
+        // 2. 삭제 버튼을 클릭하면 삭제할 것인지를 물어보는 confirm 창을 띄워주고, 확인을 누르면 P태그를 삭제
+
+        const delBtn = document.querySelectorAll('p>button');
+        delBtn.forEach((btn) => {
+            btn.addEventListener('click', (event) => {
+                const answer = confirm('삭제하시겠습니까?');
+
+                event.stopPropagation();
+
+                if (answer) {
+                    event.target.parentElement.remove();
+                }
+
+            });
+        });
+
+
+
+        // 음식 이름의 배열을 전달하면 배열안에서 랜덤하게 메뉴를 뽑아내는 로봇객체의 생성자를 만들어보세요.
+
+        function FoodRobot(foodName) {
+            this.menu = foodName
+            // this.sayMenu = function () {
+            //     const index = parseInt(Math.random() * this.menu.length);
+            //     console.log(`삐리리릭 오늘의 메뉴는 ${this.menu[index]} 입니다.`);
+            // };
+        }
+
+        FoodRobot.prototype.sayMenu = function () {
+            const index = parseInt(Math.random() * this.menu.length);
+            console.log(`삐리리릭 오늘의 메뉴는 ${this.menu[index]} 입니다.`);
+        };
+
+        const robot = new FoodRobot(['복숭아', '수박', '메론']);
+
+
+
+
+        // 우리가 객체지향 개념에서 만들었던 ‘나’ 와 ‘대상’ 객체를 생성자를 통해서 만들어 볼 수 있도록 코드를 수정해봅시다.
+
+        function Soo(name, address, phoneNum) {
+            this.name = name;
+            this.address = address;
+            this.phoneNum = phoneNum;
+            this.sleeping = function () {
+                console.log('장수연은 자고있습니다.')
+            };
+            this.feeding = function (feed) {
+                feed.eating();
+            };
+        }
+
+        const person = new Soo('수연', '의정부', '전화번호');
+
+        function Ari(weight) {
+            this.weight = weight;
+            this.eating = function () {
+                this.weight++;
+            }
+        }
+
+        const ari = new Ari(2.5);
+
+
+        person.feeding(ari);
+
+
+    </script>
+</body>
+
+</html>

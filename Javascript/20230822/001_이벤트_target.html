@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>target</title>
+</head>
+
+<body>
+    <article class="parent">
+        <ol>
+            <li><button class="btn-first" type="button">버튼1</button></li>
+            <li><button type="button">버튼2</button></li>
+            <li><button type="button">버튼3</button></li>
+        </ol>
+    </article>
+
+    <script>
+        const parent = document.querySelector('.parent');
+        parent.addEventListener('click', function (event) {
+            console.log(event.target);
+            // target - 이벤트가 발생한 진원지의 정보가 담겨있음. 따라서 이벤트리스너가 없는 요소의 이벤트가 발생했을 때도 해당 요소에 접근 할 수 있다.
+
+            console.log(event.currentTarget);
+            // currentTarget - 이벤트가 붙어있는 요소를 말함(바뀌지 않음)
+
+            if (event.target.nodeName === "BUTTON") {
+                event.target.textContent = "버튼4";
+            }
+
+            // 버튼에 이벤트를 붙이지 않았지만 이벤트를 붙인것처럼 동작
+            // 이처럼 이벤트 리스너가 없어도 마치 리스너가 있는 것 처럼 사용 할 수 있는 것을 이벤트 위임이라고 한다!
+
+            // 버튼이 아닌 li를 넣을 경우 버튼이 사라지고 텍스트로만 변경됨
+            // if (event.target.nodeName === "LI") {
+            //     event.target.textContent = "버튼4";
+            // }
+        })
+    </script>
+</body>
+
+</html>

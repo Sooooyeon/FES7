@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>\</title>
+</head>
+
+<body>
+    <form action="">
+        <button type="submit" class="submit">제출</button>
+    </form>
+
+    <script>
+
+        const btn = document.querySelector('button');
+        btn.addEventListener('click', (event) => {
+            event.preventDefault();
+            console.log('submit');
+            event.stopPropagation();
+            // 이벤트의 흐름을 차단
+            // 버튼 이후의 버블링 이벤트만 전파를 막음
+        });
+    
+        // 캡처링 이벤트로 만들어 버블링 이벤트에서 전파를 막아도 영향을 미치지 않음
+        // true가 없으면 버블링 이벤트로 위 코드의 영향을 받아 이벤트가 기능을 하지 못 함.
+        document.body.addEventListener('click', () => {
+            console.log('event still alive!!');
+        }, true);
+    </script>
+</body>
+
+</html>

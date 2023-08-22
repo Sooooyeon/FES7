@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체지향</title>
+</head>
+
+<body>
+    <script>
+        // 객체지향의 객체는 우리가 표현하고자 하는 구체적인 사물을 추상적으로 표현한 것
+
+        // 객체는 행동과 상태를 가짐.
+        // 행동 - 메서드,  상태 - 프로퍼티
+
+        const me = {
+            name: '한재현',
+            address: '제주도 제주시 인다 1길',
+            phoneNum: '010-8000-0000',
+            canWalk: function () {
+                console.log('재현이가 걷는다.');
+            },
+            teaching: function (student) {
+                student.levelUp();
+            }
+        }
+
+        const lion = {
+            level: 1,
+            levelUp: function () {
+                this.level++;
+            }
+        }
+
+        me.teaching(lion);
+        // 객체와 객체가 서로 메서드를 통해 상호작용하게 하는 것이 객체지향 프로그래밍
+
+
+
+
+        // 나를 추상화 하기
+        const soo = {
+            name: '장수연',
+            address: '의정부시',
+            phoneNum: '010-1234-5678',
+            sleeping: function () {
+                console.log('장수연은 자고있습니다.')
+            },
+            feeding: function (feed) {
+                feed.eating();
+            }
+        }
+
+        const ari = {
+            weight: 1,
+            eating: function () {
+                this.weight++;
+            }
+        }
+
+        soo.feeding(ari);
+
+
+        // 생성자의 장점 : 생성자를 통해 생성된 객체는 같은 프로퍼티와 메서드를 공유한다.
+        const myArr = new Array(1, 2, 3);
+        const myArr2 = new Array(4, 5, 6);
+
+        myArr2.length
+        myArr.length
+
+        myArr.forEach(item => {
+            console.log(item);
+        })
+
+        myArr2.forEach(item => {
+            console.log(item);
+        })
+
+
+
+        // 생성자 만들어보기
+
+        // 생성자는 함수이기 때문에 기본적으로 함수가 필요하며 생성자 함수는 암묵적으로 대문자로 시작하는 이름을 가지는 것으로 약속되어 있음.
+        // 생성자 함수의 this는 생성자를 통해 만들어진 인스턴스를 참조한다.
+        function Factory(name) {
+            this.myname = name;
+            // robot1_1.myname = 'soo';
+
+            this.sayYourName = function () {
+                console.log('삐리리리 제 이름음' + this.myname + '입니다.')
+
+            }
+        }
+
+        // new 키워드를 통해 객체 생성
+        const robot1_1 = new Factory('soo');
+        const robot1_2 = new Factory('yeon');
+
+        // Factory 생성자 함수는 따로 return 값을 가지지 않지만 new키워드가 앞에 붙게되면 실행되었을 때 자동적으로 객체를 생성하고 반환한다. 이렇게 반환되어 만들어진 객체를 다른 말로 인스턴스(instance) 라고 한다.
+
+        robot1 instanceof Factory // 생성자 함수와 객체의 관계 확인
+
+
+
+
+    </script>
+</body>
+
+</html>
