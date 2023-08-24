@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스 만들기 실습</title>
+</head>
+
+<body>
+    <script>
+        //  실습 : 소시지를 만드는 클래스를 정의해봅시다.
+
+        // 1. 생성자 함수는 두 가지 매개변수를 전달 받을 수 있으며 전달되는 매개변수에 따라 소시지의 맛이 결정됩니다.
+
+        // 2. 소시지 객체는 taste 라는 메서드가 존재합니다.생성자함수에서 전달받은 재료에 따라 맛을 나타내는 콘솔로그를 출력하는 역할을 합니다. (예시 : ‘소고기’ 와 ‘파’ 를 매개변수로 전달하였을 경우, ‘소고기와 파 맛이 난다!’ 는 콘솔 메세지를 출력합니다.)
+
+        class Sausage {
+            constructor(taste1, taste2) {
+                this.taste1 = taste1;
+                this.taste2 = taste2;
+            }
+
+            taste() {
+                console.log(`${this.taste1}와 ${this.taste2}맛이 난다!`);
+            }
+        }
+
+        // 3. 소시지 클래스를 상속받는 FiresSausage 파생클래스를 생성해봅니다.파생클래스의 taste 메서드를 실행하면 콘솔 메세지에 불맛이 나기 시작합니다.
+
+        class FiresSausage extends Sausage {
+
+            sausageFire() {
+                this.taste();
+                console.log(`불맛이 추가됐다!`);
+            }
+        }
+
+        const sausage = new FiresSausage('소고기', '파');
+        sausage.sausageFire();
+
+
+
+
+
+/////////////////////////////////////////////////////
+
+
+
+
+        // 아래 파생클래스 코드에서 taste() - 같은 이름으로 선언을하고 내용을 변경할 수 있음(덮어쓰기) => 오버라이딩이라고 함 
+
+        // 타 언어에서의 오버로딩 => 매개변수의 인자에 따라 어떤것을 실행할지 결정
+
+
+        class Sausage2 {
+            constructor(item1, item2) {
+                this.item1 = item1;
+                this.item2 = item2;
+                this.name = `${item1} ${item2} 소세지`;
+            }
+
+            taste() {
+                console.log(
+                    `소세지에서 ${this.item1}와 ${this.item2}의 맛이 난다!`
+                );
+            }
+        }
+
+
+        const sausage2 = new Sausage2();
+
+        class FiresSausage2 extends Sausage2 {
+            taste(msg) {
+                // 오버로딩 테크닉. 전달인자에 따라 다른 결과를 처리하도록 만들어 줍니다.
+                if (msg) {
+                    console.log(
+                        `소세지에서 불맛이 어우러진 ${this.item1}와 ${this.item2}의 맛이 난다!! ${msg} 때문인것 같다!`
+                    );
+                } else {
+                    console.log(
+                        `소세지에서 불맛이 어우러진 ${this.item1}와 ${this.item2}의 맛이 난다!!`
+                    );
+                }
+            }
+        }
+
+        const firesSausage = new FiresSausage2('파', '계란');
+    </script>
+</body>
+
+</html>

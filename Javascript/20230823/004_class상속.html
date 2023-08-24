@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class 상속</title>
+</head>
+
+<body>
+    <script>
+        // 상속을 받는 클래스는 ‘서브 클래스’(subclass) 혹은 ‘파생 클래스’(derived class) 라고 부른다.
+
+        // 부모 클래스의 프로퍼티를 상속받기 위해 super 함수를 사용
+
+        // 이때 super는 부모 생성자를 참조
+
+
+        class Robot {
+            constructor(name) {
+                this.myName = name;
+            }
+            sayYourName() {
+                console.log(`제 이름은 ${this.myName}입니다. 삐리리릭`)
+            }
+        }
+
+        class BabyRobot extends Robot {
+            constructor(name) {
+                super(name);
+
+                //super(name).sayYourName();
+                // 생성자 함수를 반환
+
+                thie.age = 10;
+            }
+
+            sayBabyName() {
+                this.sayYourName();
+            }
+        }
+
+        const babyRobot = new BabyRobot('소을');
+
+
+
+    </script>
+</body>
+
+</html>

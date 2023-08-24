@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prototype 상속</title>
+</head>
+
+<body>
+    <script>
+        // 자바스크립트의 상속은 기본적으로 prototype을 통해 일어난다.
+
+        // hasOwnProperty - 프로퍼티를 가지고 있는지 불리언 값으로 반환
+
+        // arr가 배열인데 객체 메서드인 hasOwnProperty 메서드를 사용할 수 있는 것은 프로토타입을 통해 상속받아서이다.
+
+        const obj = {
+            name: 'test'
+        }
+
+        console.log(obj.hasOwnProperty('name'));
+
+        const arr = [1, 2, 3];
+
+        console.log(arr.hasOwnProperty('name'));
+
+
+        // prototype은 오직 function안에 존재하는 참조값
+        // __proto__  는 객체 안에 존재하는 숨겨진 프로퍼티
+        // 인스턴스는 __proto__를 통해 생성자 함수의 prototype에 접근하여 필요한 여러가지 값과 메서드를 사용할 수 있다.
+
+        // 자바스크립트의 타입들은 기본적으로 Object 타입을 상속받고 있다.
+        console.log(Array.prototype.__proto__ === Object.prototype);
+        console.log(Number.prototype.__proto__ === Object.prototype);
+        console.log(String.prototype.__proto__ === Object.prototype);
+        console.log(Math.__proto__ === Object.prototype);
+
+
+
+        // 함수도 객체이다. 함수는 Function의 인스턴스라서 __proto__를 가짐
+
+        function Parent() {
+            this.name = '수연';
+        }
+        Parent.prototype.rename = function (name) {
+            this.name = name;
+        }
+        Parent.prototype.sayName = function () {
+            console.log(this.name);
+        }
+
+        function Child() {
+            Parent.call(this)
+            // call은 기본적으로 함수를 실행시키는 메서드.
+            // call 메서드를 통해 Parent의 프로퍼티를 상속받을 수 있다.
+            // 여기서의 this는 Child의 인스턴스
+            this.newName = '아리';
+        }
+
+        Child.prototype = Object.create(Parent.prototype);
+        // 지정된 프로토타입 객체를 갖는 새 객체를 만든다.(자식의 프로퍼티와 부모의 프로퍼티를 연결)
+        // 다중 상속은 불가능 
+
+
+        Child.prototype.Hello = function () {
+            console.log('hello');
+        }
+
+        const child = new Child();
+
+        console.log(child.name); // '수연'
+        console.log(child.newName); // '아리'
+        console.log(child.hello());
+    </script>
+</body>
+
+</html>

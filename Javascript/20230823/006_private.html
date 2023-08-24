@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비공개(private) 프로퍼티</title>
+</head>
+
+<body>
+    <script>
+        // private 프로퍼티
+        // 객체 안의 중요한 정보를 안전하게 보호하여 프로그램이 뜻하지 않게 변경되는 것을 막는 역할
+        // # 키워드를 이용해 프로퍼티를 비공개로 전환
+
+        class Robot {
+            #important
+
+            constructor(name, info) {
+                this.name = name;
+                this.#important = info;
+            }
+
+            sayYourName() {
+                console.log(`삐리비리. 제 이름은 ${this.name}입니다. 주인님.`);
+            }
+        }
+
+        const robot = new Robot('soo', 123123);
+        // console.log(robot.#important);
+        // robot.#important = 000000;
+
+
+
+
+        // private 프로퍼티 접근, 수정
+        class Robot2 {
+            #password
+
+            constructor(name, pw) {
+                this.name = name;
+                this.#password = pw;
+            }
+
+
+            sayYourName() {
+                console.log(`삐리비리. 제 이름은 ${this.name}입니다. 주인님.`);
+            }
+
+            // getPassword() {
+            //     return this.#password
+            // }
+
+            // setPassword(pw) {
+            //     this.#password = pw;
+            // }
+
+            get password() {
+                return this.#password
+            }
+
+            set password(pw) {
+                this.#password = pw;
+            }
+        }
+
+        const robot2 = new Robot2('soo', 123123);
+        // console.log(robot2.getPassword());
+        // console.log(robot2.setPassword(456456));
+        console.log(robot2.password)
+        robot2.password = 456456;
+
+        // #password 의 값에 접근하고 수정하려면 반드시 해당하는 기능을 하는 메서드를 사용(get, set)
+
+        // get과 set을 사용할 때 주의할 점!
+        // private 필드 선언을 한 프로퍼티의 경우 get, set 키워드를 사용하면, 비공개 하였음에도 불구하고 일반 프로퍼티처럼 접근이 가능하되어 사용하지 않는 것이 좋다.
+
+        // 값을 불러오는 메서드를 getter 메서드, 값을 수정하는 메서드를 setter 메서드로 부른다.
+
+    </script>
+</body>
+
+</html>
