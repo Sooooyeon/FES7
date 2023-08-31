@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocumentFragment</title>
+</head>
+
+<body>
+    <main></main>
+
+    <script>
+        const main = document.querySelector('main');
+
+        const frag = new DocumentFragment();
+
+
+        for (let i = 0; i < 10; i++) {
+            const article = document.createElement('article');
+            article.innerHTML = `<figure>
+            <img class="figImg"
+                src="https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202112/13/e4725896-2596-44f0-8b95-ab3faaa76d7d.jpg"
+                alt="">
+            <figcaption class="figCap">
+                유재석씨가 코로나에 돌파 감염되었다는 소식입니다.
+            </figcaption>
+        </figure>`;
+            frag.appendChild(article);
+        }
+        // main.appendChild(frag);
+        // DocumentFragment() 를 사용해서 한번에 DOM을 업데이트한다. 한번 붙이고 나면 담긴게 사라져서 다시 붙일 수 없다.
+        // DocumentFragment : 오직 메모리상에서만 존재하는 경량화된 DOM 트리
+
+        main.appendChild(frag.cloneNode(true));
+        // cloneNode()메소드는 이 Node메소드가 호출된 노드의 복제본을 반환한다.해당 매개변수는 노드에 포함된 하위 트리도 복제되는지 여부를 제어하는데 true일 경우 해당 노드와 하위 텍스트 노드, 하위 텍스트 노드에 있을 수 있는 텍스트 포함한 모든 서브트리 노드를 복제한다. false일 경우 해당 노드만 복제된다.
+
+        main.appendChild(frag.cloneNode(true));
+        // cloneNode()는 복제본으로 여러번 붙일 수 있다!
+
+    </script>
+</body>
+
+</html>

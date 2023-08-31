@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>requestAnimationFrame - 움직이는 박스 만들기</title>
+    <style>
+        body {
+            margin: 100px;
+        }
+
+        .box {
+            width: 50px;
+            height: 50px;
+            background-color: darkcyan;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        const box = document.querySelector('.box');
+        let posx = 0;
+        let posy = 0;
+
+        // document.addEventListener('keydown', move);
+
+        // function move(event) {
+        //     if (event.key === "ArrowRight") {
+        //         pos += 5;
+        //         box.style.transform = `translate(${pos}px)`
+        //     }
+        //     if (event.key === "ArrowLeft") {
+        //         pos -= 5;
+        //         box.style.transform = `translate(${pos}px)`
+        //     }
+        // }
+
+        let keys = "";
+
+        function move(event) {
+            keys = event.key;
+        }
+
+        function stop() {
+            keys = "";
+        }
+
+        document.addEventListener('keydown', move);
+        document.addEventListener('keyup', stop);
+
+
+        function play() {
+
+            console.log(keys);
+            switch (keys) {
+                case "ArrowRight":
+                    posx += 5;
+                    box.style.transform = `translate(${posx}px,${posy}px)`
+                    break;
+                case "ArrowLeft":
+                    posx -= 5;
+                    box.style.transform = `translate(${posx}px,${posy}px)`
+                    break;
+                case "ArrowUp":
+                    posy -= 5;
+                    box.style.transform = `translate(${posx}px,${posy}px)`
+                    break;
+                case "ArrowDown":
+                    posy += 5;
+                    box.style.transform = `translate(${posx}px,${posy}px)`
+                    break;
+            }
+
+            requestAnimationFrame(play);
+            // 무한 반복되지만 웹브라우저가 멈추지 않음
+        }
+        requestAnimationFrame(play);
+
+        // requestAnimationFrame : 브라우저가 애니메이션을 최적화 하도록 하고, 비 활성 탭에서는 애니메이션이 동작하지 않도록 한다.
+        // requestAnimationFrame을 적용하지 않았을 때는 애니메이션이 뚝뚝 끊기며 이동한다.
+
+        // 키보드를 눌렀을 때 어떤 키와 값이 있는지 볼 수 있다.
+        // key, keyCode, code 등의 값을 알고 싶을 때 사용하면 좋다.
+        window.addEventListener("keydown", (e) => console.log(e));
+
+    </script>
+</body>
+
+</html>
