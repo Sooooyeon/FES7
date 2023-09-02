@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise</title>
+</head>
+
+<body>
+    <script>
+        // 프로미스 객체를 생성. 생성자에는 약속을 지켰을 시 이행되는 resolve와, 약속을 지키지 못했을 때를 이행되는 reject를 인자로 전달.
+        const orderCoffee = new Promise((resolve, reject) => {
+            const requestObj = new XMLHttpRequest();
+            requestObj.open('GET', 'orderCoffee.txt')
+            requestObj.onreadystatechange = () => {
+                if (requestObj.readyState === 4) {
+                    if (requestObj.status === 200) {
+                        const result = requestObj.responseText;
+                        resolve(result);
+                    } else {
+                        reject(new Error(`오늘의 커피 원두가 모두 소진되었습니다. ${requestObj.status}`));
+                    }
+                }
+            };
+            requestObj.send();
+        })
+
+        // console.log(orderCoffee);
+        // 비동기 통신으로 요청한 데이터 통신이 끝나기 전에 콘솔이 찍혀버림
+        // 아직 이행중인 상태로 pending이 뜸
+
+
+        // then 메소드를 사용하면 비동기 코드를 마치 동기적인 코드처럼 작성 할 수 있다.
+
+        // resolve 함수가 실행되어야 then함수가 실행됨. resolve 함수의 인자(result)를 그대로 받음 (resolve 메서드가 실행될때 전달된 인자는 then 메서드의 콜백함수의 인자로 전달된다.)
+        orderCoffee.then((asyncResult) => {
+            console.log(asyncResult);
+        }).catch((error) => {
+            // then 메소드는 프라미스 객체를 반환하기 때문에 catch 메소드를 이어서 쓰는것이 가능
+            // resolve 메소드와 마찬가지로 reject 메소드가 실행될때 전달된 인자는 catch 메소드의 콜백함수의 인자로 전달된다.
+            console.log(error);
+        });
+
+    </script>
+</body>
+
+</html>

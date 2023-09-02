@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>콜백지옥</title>
+</head>
+
+<body>
+    <script>
+        // 자바스크립트 엔진은 비동기 코드가 끝날때까지 다른 코드의 실행을 멈추지 않기 때문에 Ajax와 기존의 동기식 코드를 함께 작성하면 코드의 실행순서에 문제가 발생한다.
+        // ex
+        // const result = 비동기통신함수();
+        // const result2 = 비동기통신함수2();
+        // const total = result + result2;
+        // 이런 방식은 불가능 하다. result와 result2의 통신이 언제 이루어질지 모르기때문에 total 값을 구할 수 없다.
+        // 따라서 통신이 끝난 다음에야 다음 함수가 실행되도록 콜백함수로 코드를 작성해야한다.
+        // 비동기 코드가 끝나고 콜백으로 함수를 부르고, 다음 함수를 또 콜백으로 부르는 형태가 되어야 한다.
+
+
+        // 콜백함수 예제 코드 (가독성이 떨어진다)
+
+        'use strict';
+
+        class UserStorage {
+            // 사용자가 입력한 값과 유저 정보가 일치하는 유저를 찾는다.
+            searchUser(userName, password, onSuccess, onError) {
+                const requestObj = new XMLHttpRequest();
+                requestObj.open('GET', 'user.json'); // 요청 초기화
+                requestObj.onreadystatechange = () => {
+                    if (requestObj.readyState == 4 && requestObj.status === 200) {
+                        const result = JSON.parse(requestObj.responseText).user.find((item) => {
+                            // find() 메서드는 주어진 판별 함수를 만족하는 첫 번째 요소의 값을 반환한다.
+                            return item.userName === userName && item.password === password
+                        });
+
+                        // 사용자가 입력한 정보와 일치하는 유저가 존재한다면
+                        if (result) {
+                            onSuccess(userName);
+
+                            // 사용자가 입력한 정보와 일치하는 유저가 존재하지 않는다면
+                        } else {
+                            onError(new Error('user not found'));
+                        }
+                    }
+                }
+                requestObj.send();
+            };
+
+            // 유저에 맞는 인사말을 출력
+            sayHi(user, onSuccess, onError) {
+                const requestObj = new XMLHttpRequest();
+                requestObj.open('GET', 'greetings.json')// 요청 초기화
+                requestObj.onreadystatechange = () => {
+                    if (requestObj.readyState == 4 && requestObj.status === 200) {
+                        const result = JSON.parse(requestObj.responseText).greetings.find((item) => {
+                            return item.userName === user
+                        });
+
+                        // 사용자가 입력한 유저 이름과 일치하는 인사말이 존재한다면
+                        if (result) {
+                            onSuccess(result);
+
+                            // 사용자가 입력한 유저 이름과 일치하는 인사말이 존재하지 않는다면
+                        } else {
+                            onError(new Error('no greetings'));
+                        }
+                    }
+                }
+                requestObj.send();
+
+            };
+
+
+        }
+
+        const userStorage = new UserStorage();
+
+        const userName = prompt('이름을 입력하세요');
+        const password = prompt('비밀번호를 입력하세요');
+
+        userStorage.searchUser(userName,
+            password,
+            (name) => {
+                userStorage.sayHi(name,
+                    (result) => {
+                        alert(`당신에게 인사합니다! ${result.userName}님 ${result.greetings}`)
+                    },
+                    (error) => {
+                        console.log(error);
+                    });
+            },
+            (error) => {
+                console.log(error);
+            }
+        );
+    </script>
+</body>
+
+</html>
