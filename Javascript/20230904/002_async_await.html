@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async await</title>
+</head>
+
+<body>
+    <script>
+        async function message() {
+            const hello = await new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve('hello');
+                }, 100);
+            });
+
+            const world = await new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve('world');
+                }, 100);
+            });
+            console.log(`${hello} ${world}`);
+        }
+
+
+        // async, await를 제거한경우 - then을 사용
+        function message2() {
+            new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve('hello');
+                }, 100);
+            }).then((result) => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve(result + ' world');
+                    }, 100);
+                });
+            }).then((msg) => {
+                console.log(msg);
+            });
+        }
+
+
+
+
+
+        message();
+        message2();
+
+    </script>
+</body>
+
+</html>
