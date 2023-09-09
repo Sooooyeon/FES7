@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="500" height="300"></canvas>
+    <script>
+        const canvas = document.getElementById("canvas");
+        // getContext() - canvas 요소의 drawing context 객체를 가져온다. 그림을 그리는데 필요한 방법을 제공하는 객체이다.
+        const ctx = canvas.getContext('2d');
+
+        // 사각형 그리기 (x 축의 위치, y 축의 위치, 너비, 높이)
+
+        // L
+        ctx.fillStyle = "black"
+        ctx.fillRect(0, 0, 30, 110);
+        ctx.fillRect(30, 80, 60, 30);
+
+        // I
+        ctx.fillRect(120, 0, 30, 110);
+
+
+        // O
+        ctx.beginPath();
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 30;
+        // 원을 그리는 메서드
+        // 원의 중심의 x축, y축, 반지름의 길이, 시작 각도, 종료 각도
+        // 1라디안은 반지름과 동일한 길이으 호(곡선)를 그렸을 때의 각도를 의미
+        ctx.arc(230, 55, 40, 0, Math.PI * 2);
+        ctx.stroke();
+
+        // N
+        ctx.fillRect(310, 0, 30, 110);
+        // 대각선
+        ctx.beginPath();
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 30;
+        ctx.moveTo(335, 0);
+        ctx.lineTo(390, 103);
+        ctx.stroke();
+        ctx.fillRect(376, 0, 30, 110);
+
+
+    </script>
+</body>
+
+</html>
