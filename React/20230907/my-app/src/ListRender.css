@@ -1,0 +1,16 @@
+.listArea{
+    list-style: none;
+}
+
+.listArea li{
+    border:1px solid black
+}
+
+.listArea li+li{
+    border-top: none;
+}
+
+.listArea li.visited{
+    background-color: royalblue;
+    color: white;
+}
