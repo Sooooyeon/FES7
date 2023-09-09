@@ -1,0 +1,20 @@
+.one {
+  display: flex;
+  flex-direction: row;
+  justify-content: "center";
+  align-items: center;
+}
+
+.two {
+  display: flex;
+  flex-direction: row;
+  justify-content: "center";
+  align-items: center;
+}
+
+.three {
+  display: flex;
+  flex-direction: row;
+  justify-content: "space";
+  align-items: space;
+}/*# sourceMappingURL=020_믹스인.css.map */

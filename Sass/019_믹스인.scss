@@ -1,0 +1,33 @@
+// @mixin 이름(매개변수) //생성
+// @include 이름(인수)  //사용
+
+@mixin flex($align) {
+    height: 100px;
+    margin: 20px;
+    background-color: olivedrab;
+    color: white;
+    display: flex;
+    flex-direction: row; // 입력 받는 것이 좋을 것.
+
+
+    @if($align =='center') {
+        justify-content: center;
+        align-items: center;
+    }
+
+    @else if($align =='space') {
+        justify-content: space-between;
+    }
+}
+
+.one {
+    @include flex('center')
+}
+
+.two {
+    @include flex('center')
+}
+
+.three {
+    @include flex('space') // space-between
+}

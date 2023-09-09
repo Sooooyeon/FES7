@@ -1,0 +1,16 @@
+$sooyeon1: #000;
+$sooyeon2: #fff;
+// 한글 변수는 권장하지 않음.
+$큰글자: 32px;
+
+.one {
+    font-size: $큰글자;
+}
+
+.two {
+    color: $sooyeon1;
+}
+
+.three {
+    color: $sooyeon2;
+}

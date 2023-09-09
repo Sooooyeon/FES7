@@ -1,0 +1,31 @@
+.one {
+  height: 100px;
+  margin: 20px;
+  background-color: olivedrab;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.two {
+  height: 100px;
+  margin: 20px;
+  background-color: olivedrab;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.three {
+  height: 100px;
+  margin: 20px;
+  background-color: olivedrab;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}/*# sourceMappingURL=019_믹스인.css.map */

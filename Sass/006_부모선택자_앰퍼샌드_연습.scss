@@ -1,0 +1,33 @@
+nav {
+    ul {
+        display: flex;
+        justify-content: space-between;
+        border: solid 1px black;
+        padding: 0;
+
+        li {
+            list-style: none;
+
+            &:first-child {
+                color: white;
+            }
+
+            &:nth-child(1) {
+                background-color: red;
+            }
+
+            &:nth-child(2) {
+                background-color: green;
+            }
+
+            &:nth-child(3) {
+                background-color: blue;
+            }
+
+            &:hover {
+                background-color: white;
+            }
+
+        }
+    }
+}

@@ -1,0 +1,36 @@
+.one {
+    font-size: 10px + 10px;
+}
+
+
+// 이런식의 연산이 되지 않도록 주의, 의도아지 않은 결과가 나올 수 있음.
+.two {
+    font-size: 10 + 10xp;
+}
+
+.three {
+    font-size: 10px - 3px;
+}
+
+
+// javascript가 아니기 때문에 더 엄밀한 여러가지 test를 하지 않지만 단위는 맞춰 연산을 하자.
+.four {
+    font-size: 10 - -3px;
+}
+
+.five {
+    font-size: 10px -3px;
+    // 10 -3이 아니라 -3이 음수로 인식되어 10px, -3px이 같이 들어간다.
+}
+
+.six {
+    font-size: 10px * 3;
+}
+
+.seven {
+    font-size: (10px / 3);
+}
+
+.eight {
+    font-size: 10px % 3px;
+}

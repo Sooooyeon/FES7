@@ -1,0 +1,18 @@
+@mixin flex($align) {
+    display: flex;
+    flex-direction: row;
+    justify-content: $align; // 이렇게 넣으면 따옴가 포함되어 들어감
+    align-items: #{$align}; // 이렇게 입력하면 따옴표가 사라지고 들어감
+}
+
+.one {
+    @include flex('center')
+}
+
+.two {
+    @include flex('center')
+}
+
+.three {
+    @include flex('space') // space-between
+}
