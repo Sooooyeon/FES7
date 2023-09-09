@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>react 컴포넌트 정의하기</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        // react 컴포넌트 정의하기
+        const el = React.createElement;
+
+        class HelloButton extends React.Component {
+            constructor(props) {
+                super(props);
+
+                this.state = { liked: false }
+            }
+
+            render() {
+                if (this.state.liked) {
+                    return <p>Hello World!</p>;
+                }
+                return (
+                    // liked: false로 처음에 버튼이 출력됨. 그리고 버튼을 누르면 상태가 변경되어 p태그 안의 내용이 나오게 됨
+                    <button onClick={() => this.setState({ liked: true })}>
+                        Hello
+                    </button>
+                );
+            }
+        }
+
+        const domContainer = document.querySelector('#root');
+        // react-dom : UI 구성요소를 만들고 관리하는 목적의 라이브러리
+        ReactDOM.render(el(HelloButton), domContainer);
+    </script>
+</body>
+
+</html>

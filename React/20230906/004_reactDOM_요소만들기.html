@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReactDOM으로 요소 만들기</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+
+    <div id="root" class="container">
+        <!-- <h1>hello react</h1>
+        <a href="https:www.test.com">test site</a> -->
+    </div>
+
+    <script type="text/babel">
+        const tag = {
+            tag: 'div',
+            props: {
+                id: 'root',
+                className: 'container',
+            },
+            children: [
+                {
+                    tag: 'div',
+                    props: {
+                        id: 'root',
+                        className: 'container',
+                    },
+                    children: [
+                        {
+                            tag: 'div',
+                            props: {
+                                id: 'root',
+                                className: 'container',
+                            },
+                        }
+                    ]
+                }
+            ]
+        }
+
+
+        console.log(tag)
+
+        function helloVdom() {
+            return React.createElement(
+                'h1',
+                { className: 'container' },
+                'hello',
+                React.createElement(
+                    'i',
+                    null,
+                    'welcome!'
+                )
+            )
+        }
+
+        function helloJSX() {
+            return (
+                <h1 className="container">
+                    hello <i>welcome!</i>
+                </h1>
+            );
+        }
+
+        const domContainer = document.querySelector('#root');
+        // react-dom : UI 구성요소를 만들고 관리하는 목적의 라이브러리
+        // ReactDOM.render(helloVdom(), domContainer);
+        ReactDOM.render(helloJSX(), domContainer);
+    </script>
+</body>
+
+</html>
