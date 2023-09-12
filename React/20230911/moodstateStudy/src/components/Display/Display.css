@@ -1,0 +1,11 @@
+.container {
+    height: 200px;
+    width: 400px;
+    margin: 0 auto;
+    border: 1px solid rgb(130, 86, 212);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(130, 86, 212);
+}
