@@ -1,0 +1,159 @@
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PretendardBold';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* reset */
+body,p,h1,h2,button{
+    padding: 0;
+    margin: 0;
+}
+button{
+    border: none;
+    background: none;
+    color: #617199;
+    vertical-align: middle;
+    padding: 0;
+    cursor: pointer;
+}
+
+
+body{
+    height: 100%;
+    background: radial-gradient(293.21% 130.49% at 3.59% 5.28%, #F0F4FF 0%, #A5B6EE 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Pretendard';
+    margin: auto;
+}
+
+.wrap{
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    align-items: center;
+    margin: auto;
+    padding: 72px 0 103px;
+}
+
+.wrap h1 img{
+    width: 244px;
+    height: 48px;
+}
+
+.timer{
+    border-radius: 16px;
+    background: linear-gradient(144deg, #5572BB 2.13%, #374B7C 102.97%);
+
+    box-shadow: 20px 20px 60px 10px rgba(55, 75, 124, 0.40);
+
+    padding: 48px 58px 40px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: auto;
+}
+
+.timer h2{
+    font-size: 24px;
+    font-family: 'PretendardBold';
+    margin-bottom: 57px;
+}
+
+.counter::before{
+    content: '';
+    width: 312px;
+    height: 1px;
+    background-color: #3D538A;
+    position: absolute;
+    box-shadow: 0px 1px #5B75B4;
+    top: -28%;
+    left:50%;
+    transform: translate(-50%,0);
+}
+
+
+
+.counter{
+    display: flex;
+    flex-direction: row;
+    gap: 22px;
+    position: relative;
+}
+
+.counter div{
+    width: 80px;
+    height: 98px;
+    color: #A5B6EE;
+    font-size: 12px;
+    font-family: 'PretendardBold';
+
+    text-align: center;
+    background-image: url(./img/box.svg);
+    background-size: 80px 80px;
+    background-position: bottom;
+    background-repeat: no-repeat;
+
+}
+
+.counter div p{
+    padding-top: 20px;
+    color: #FFF;
+    font-size: 40px;
+}
+
+.counter .hrs,
+.counter .min{
+    position: relative;
+}
+
+.counter .hrs::after,
+.counter .min::after{
+    content: '';
+    width: 6px;
+    height: 26px;
+    background-image: url("./img/dot.svg");
+    position: absolute;
+    top: 50%;
+    right: -17%;
+}
+
+.btn_group{
+    margin-top: 40px;
+}
+
+.btn_group button{
+
+    width: 112px;
+    height: 48px;
+    border-radius: 50px;
+    background: #324577;
+    box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.05) inset;
+}
+
+.btn_group .btn_start:hover{
+    background: #5180FF;
+    color: #FFF;
+}
+
+.btn_group .btn_reset{
+    margin-left: 12px;
+}
+
+.btn_group .btn_reset:hover{
+    background: #FB7099;
+    color: #FFF;
+}
