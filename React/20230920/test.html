@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        // 피보나치 수열 알고리즘
+        // [1, 1, 2, 3, 5, 8, 13 ........]
+        function fn(n) {
+            if (n === 1 || n === 2) {
+                return 1
+            } else {
+                return fn(n - 1) + fn(n - 2)
+            }
+        }
+
+        // fn(6)
+        // fn(5) + fn(4)
+        // fn(4) + fn(3) + fn(3) + fn(2)
+        // fn(3) + fn(2) + fn(2) + fn(1) + fn(2) + fn(1) + 1
+        // fn(2) + fn(1) + 1 + 1 + 1 + 1 + 1 + 1
+        // 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1
+        // 8
+
+
+        // 메모이제이션 적용
+        const memo = [];
+
+        function fnMemo(n) {
+            if (n === 1 || n === 2) {
+                memo[n] = 1;
+                return 1
+            } else if (memo[n] !== undefined) {
+                return memo[n]
+            } else {
+                memo[n] = fnMemo(n - 1) + fnMemo(n - 2);
+                return memo[n]
+            }
+        }
+
+        // n = 6 일때 
+
+        // 순서1
+        // memo[6] = fnMemo(5) + fnMemo(4)
+        // const memo = [ , , , , , , , fnMemo(5) + fnMemo(4)]
+
+        // 순서2
+        // fnMemo(5)
+        // memo[5] = fnMemo(4) + fnMemo(3)
+        // const memo = [ , , , , , , fnMemo(4) + fnMemo(3), fnMemo(5) + fnMemo(4)]
+
+        // 순서3
+        // fnMemo(4)
+        // memo[4] = fnMemo(3) + fnMemo(2)
+        // const memo = [ , , , , , fnMemo(3) + fnMemo(2), fnMemo(4) + fnMemo(3), fnMemo(5) + fnMemo(4)]
+
+
+
+        // memo[6] = fnMemo(4) + fnMemo(3) + fnMemo(3) + fnMemo(2)
+        //              ↓
+        // 순서3 실행 후 memo[4]에 넣은 값을 재사용 할 수 있게된다!
+
+
+        // memo = [0,1,2,3,4,5,fnMemo(5) + fnMemo(4)]
+
+        // memo = [,1,1,fnMemo(2) + fnMemo(1),fnMemo(3) + fnMemo(2), fnMemo(4) + fnMemo(3), fnMemo(5) + fnMemo(4)]
+
+        // fnMemo(6) =
+        // memo[6] = fnMemo(5) + fnMemo(4)
+        // memo[6] = fnMemo(5) + fnMemo(4)
+        // memo[6] = fnMemo(4) + fnMemo(3) + fnMemo(3) + fnMemo(2)
+        // memo[6] = fnMemo(3) + fnMemo(2) + fnMemo(2) + fnMemo(1) + fnMemo(2) + fnMemo(1) + 1
+
+        // memo[6] = fnMemo(2) + fnMemo(1) + 1 + 1 + 1 + 1 + 1 + 1
+        // memo[6] = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1
+
+        // memo[5] = fnMemo(4) + fnMemo(3)
+
+    </script>
+</body>
+
+</html>
