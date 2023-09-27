@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <style>
+        #calendar {
+            display: inline-block;
+            padding: 20px;
+            background: #333;
+            text-align: center;
+            color: #fff;
+        }
+
+        #calendar table {
+            border-collapse: collapse;
+        }
+
+        caption {
+            font-size: 25px;
+            color: orange;
+            margin: 10px;
+        }
+
+        th,
+        td {
+            padding: 20px;
+            border: 1px solid #666;
+        }
+
+        th:first-child,
+        td:first-child {
+            color: red;
+        }
+
+        .prev,
+        .next {
+            color: inherit;
+            padding: 10px;
+            margin: 5px;
+            background-color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        class Calendar {
+            constructor(parentEl, year, month) {
+                this.year = year;
+                this.month = month;
+                this.parentEl = parentEl;
+
+                this.initHtmlStructure();
+                this.initButtons();
+                this.render();
+            }
+
+            // HTML 구조를 랜더링하는 함수입니다.
+            initHtmlStructure() {
+                const calendarHtml = `
+                    <article id="calendar">
+                        <h2>나의 멋진 HTML 달력</h2>
+                        <table>
+                            <caption>
+                                <time datetime=""><span class="year"></span>년 <span class="month"></span>월</time>
+                            </caption>
+                            <tr>
+                                <th>일</th>
+                                <th>월</th>
+                                <th>화</th>
+                                <th>수</th>
+                                <th>목</th>
+                                <th>금</th>
+                                <th>토</th>
+                            </tr>
+                            <!-- tr 태그가 6개, td 가 7개임을 문자열로 나열합니다. --> 
+                            ${Array(6).fill('<tr>' + Array(7).fill('<td>&nbsp;</td>').join('') + '</tr>').join('')}
+                        </table>
+                        <button type="button" class="prev">이전달</button>
+                        <button type="button" class="next">다음달</button>
+                    </article>
+                `;
+
+                this.parentEl.innerHTML = calendarHtml;
+
+                this.timeEl = document.querySelector('#calendar time');
+                this.captionYear = document.querySelector('.year');
+                this.captionMonth = document.querySelector('.month');
+                this.prevBtn = document.querySelector('.prev');
+                this.nextBtn = document.querySelector('.next');
+                this.days = document.querySelectorAll('#calendar tr td');
+            }
+
+            // 버튼 기능들을 초기화합니다.
+            initButtons() {
+                this.prevBtn.addEventListener('click', () => {
+                    this.prevMonth();
+                    this.render();
+                });
+
+                this.nextBtn.addEventListener('click', () => {
+                    this.nextMonth();
+                    this.render();
+                });
+            }
+
+            // 이전달 계산함수
+            prevMonth() {
+                this.month--;
+                if (this.month < 1) {
+                    this.month = 12;
+                    this.year--;
+                }
+            }
+
+            // 다음달 계산함수
+            nextMonth() {
+                this.month++;
+                if (this.month > 12) {
+                    this.month = 1;
+                    this.year++;
+                }
+            }
+
+            // 화면에 필요한 데이터들을 랜더링 합니다.
+            render() {
+                const time = new Date(this.year, this.month - 1, 1);
+                const dayLength = new Date(this.year, this.month, 0).getDate();
+                const startDay = time.getDay();
+
+                for (let i = 0; i < this.days.length; i++) {
+                    this.days[i].innerHTML = '&nbsp;';
+                }
+
+                for (let i = startDay, date = 1; i < startDay + dayLength; i++) {
+                    this.days[i].textContent = date++;
+                }
+
+                this.captionYear.textContent = this.year;
+                this.captionMonth.textContent = this.month;
+                this.timeEl.dateTime = `${this.year}-${this.month}`;
+            }
+        }
+
+        const currentDate = new Date();
+
+        // 기본적으로 현재 시간을 기준으로 캘린더를 생성합니다. 위치는 body의 자식으로 배치합니다.
+        const calendar = new Calendar(document.body, currentDate.getFullYear(), currentDate.getMonth() + 1);
+    </script>
+</body>
+
+</html>
