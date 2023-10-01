@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        article {
+            display: inline-block;
+            border: 3px solid black;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .viewer {
+            display: block;
+            font-size: 24px;
+            color: teal;
+            margin: 50px 0 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <article>
+        <strong class="viewer"></strong>
+        <input class="inp-txt" type="text">
+        <button class="btn-push">적용</button>
+    </article>
+
+    <script src="textManager.js"></script>
+    <script src="viewManager.js"></script>
+    <script>
+        // 테스트가 가능하려면!
+        /**
+         * 1. 테스트 대상이 UI에서 완전히 분리되어야합니다.
+         * 2. 모든 기능은 함수로 구현해야합니다.
+        */
+        const viewerEl = document.querySelector('.viewer');
+        const inpTxt = document.querySelector('.inp-txt');
+        const btnEl = document.querySelector('.btn-push');
+
+        const textManager = new TextManager();
+        const viewManager = new ViewManager(textManager, { viewerEl, inpTxt, btnEl });
+
+        viewManager.updateView();
+    </script>
+</body>
+
+</html>
