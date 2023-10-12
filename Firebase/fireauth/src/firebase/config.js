@@ -1,7 +1,7 @@
 // config.js 안에 있는 프로젝트관련 값들은 매우 중요해 노출되지 않도록 환경변수를 설정한다.
 import { initializeApp } from "firebase/app";
-import { getFireStore } from "firebase/firestore"
-import { getAuth } from "firebase/auth"
+import { getFirestore, Timestamp } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_API_KEY,
@@ -17,9 +17,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 // firestore 초기화
-const appFireStore = getFireStore(app);
+const appFireStore = getFirestore(app);
 
 // 인증 초기화 
 const appAuth = getAuth();
 
-export{appFireStore, appAuth }
+const timestamp = Timestamp;
+
+export{ appFireStore, appAuth, timestamp }
