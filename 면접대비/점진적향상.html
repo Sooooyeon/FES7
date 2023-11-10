@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <style>
+    .layout-grid {
+      display: grid;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container"></div>
+  <picture>
+    <source srcset="test.webp" type="image/webp">
+    <source srcset="test.avif" type="image/avif">
+    <img src="test.jepg" alt="테스트 이미지입니다.">
+  </picture>
+  <script>
+    const container = document.querySelector('.container');
+    console.log(container.style);
+    // CSSStyleDeclaration에서 브라우저가 지원하는 css속성을 확인할 수 있음
+
+    if (container.style.grid !== undefined) {
+      container.classList.add('layout-grid');
+    } else {
+      container.classList.add('layout-flex');
+    }
+  </script>
+</body>
+
+</html>
